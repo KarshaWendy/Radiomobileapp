@@ -14,6 +14,10 @@
 		04F30A5A232B6DFE002AB09E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F30A58232B6DFE002AB09E /* LaunchScreen.storyboard */; };
 		04F30A65232B6DFE002AB09E /* CapitalFMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A64232B6DFE002AB09E /* CapitalFMTests.swift */; };
 		04F30A70232B6DFE002AB09E /* CapitalFMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A6F232B6DFE002AB09E /* CapitalFMUITests.swift */; };
+		04F30A7E232B914B002AB09E /* LaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A7D232B914A002AB09E /* LaunchVC.swift */; };
+		04F30A80232B9160002AB09E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A7F232B9160002AB09E /* LoginVC.swift */; };
+		04F30A82232B9198002AB09E /* SignUpOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A81232B9198002AB09E /* SignUpOptionsVC.swift */; };
+		04F30A84232B91B5002AB09E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A83232B91B5002AB09E /* HomeVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		04F30A6B232B6DFE002AB09E /* CapitalFMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CapitalFMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F30A6F232B6DFE002AB09E /* CapitalFMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitalFMUITests.swift; sourceTree = "<group>"; };
 		04F30A71232B6DFE002AB09E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04F30A7D232B914A002AB09E /* LaunchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchVC.swift; sourceTree = "<group>"; };
+		04F30A7F232B9160002AB09E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		04F30A81232B9198002AB09E /* SignUpOptionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOptionsVC.swift; sourceTree = "<group>"; };
+		04F30A83232B91B5002AB09E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,10 @@
 				04F30A56232B6DFE002AB09E /* Assets.xcassets */,
 				04F30A58232B6DFE002AB09E /* LaunchScreen.storyboard */,
 				04F30A5B232B6DFE002AB09E /* Info.plist */,
+				04F30A7D232B914A002AB09E /* LaunchVC.swift */,
+				04F30A7F232B9160002AB09E /* LoginVC.swift */,
+				04F30A81232B9198002AB09E /* SignUpOptionsVC.swift */,
+				04F30A83232B91B5002AB09E /* HomeVC.swift */,
 			);
 			path = CapitalFM;
 			sourceTree = "<group>";
@@ -256,8 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F30A82232B9198002AB09E /* SignUpOptionsVC.swift in Sources */,
 				04F30A52232B6DFC002AB09E /* ViewController.swift in Sources */,
 				04F30A50232B6DFC002AB09E /* AppDelegate.swift in Sources */,
+				04F30A84232B91B5002AB09E /* HomeVC.swift in Sources */,
+				04F30A80232B9160002AB09E /* LoginVC.swift in Sources */,
+				04F30A7E232B914B002AB09E /* LaunchVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
