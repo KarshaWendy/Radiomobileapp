@@ -10,6 +10,7 @@ import UIKit
 
 class SignUpOptionsVC: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
