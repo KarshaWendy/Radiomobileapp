@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		049E3CED2330F8780020B797 /* SocialLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E3CEC2330F8780020B797 /* SocialLoginVC.swift */; };
 		04F30A50232B6DFC002AB09E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A4F232B6DFC002AB09E /* AppDelegate.swift */; };
 		04F30A52232B6DFC002AB09E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A51232B6DFC002AB09E /* ViewController.swift */; };
 		04F30A55232B6DFC002AB09E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F30A53232B6DFC002AB09E /* Main.storyboard */; };
@@ -18,6 +19,9 @@
 		04F30A80232B9160002AB09E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A7F232B9160002AB09E /* LoginVC.swift */; };
 		04F30A82232B9198002AB09E /* SignUpOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A81232B9198002AB09E /* SignUpOptionsVC.swift */; };
 		04F30A84232B91B5002AB09E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A83232B91B5002AB09E /* HomeVC.swift */; };
+		5C871B1637F84356C7DAB3CC /* Pods_CapitalFMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8FCF262BEABF0874A56D32 /* Pods_CapitalFMTests.framework */; };
+		A09BC08AF32765E8BAE77AEC /* Pods_CapitalFMUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809EFDAA88CE8E9E97D3D907 /* Pods_CapitalFMUITests.framework */; };
+		B8D3E203FB49CA0673DC58C0 /* Pods_CapitalFM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD62A018018F30D2A9CED381 /* Pods_CapitalFM.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		049E3CEC2330F8780020B797 /* SocialLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginVC.swift; sourceTree = "<group>"; };
 		04F30A4C232B6DFC002AB09E /* CapitalFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapitalFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F30A4F232B6DFC002AB09E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F30A51232B6DFC002AB09E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +60,15 @@
 		04F30A7F232B9160002AB09E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		04F30A81232B9198002AB09E /* SignUpOptionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOptionsVC.swift; sourceTree = "<group>"; };
 		04F30A83232B91B5002AB09E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		1DAD24FB91684DA1644BEDED /* Pods-CapitalFM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapitalFM.release.xcconfig"; path = "Target Support Files/Pods-CapitalFM/Pods-CapitalFM.release.xcconfig"; sourceTree = "<group>"; };
+		6C12B232B7D8718B51094815 /* Pods-CapitalFMTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapitalFMTests.release.xcconfig"; path = "Target Support Files/Pods-CapitalFMTests/Pods-CapitalFMTests.release.xcconfig"; sourceTree = "<group>"; };
+		809EFDAA88CE8E9E97D3D907 /* Pods_CapitalFMUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapitalFMUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89C6ACF877FC91C286A68D0C /* Pods-CapitalFMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapitalFMUITests.release.xcconfig"; path = "Target Support Files/Pods-CapitalFMUITests/Pods-CapitalFMUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B18A81DF31D96368CBBB0C43 /* Pods-CapitalFMUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapitalFMUITests.debug.xcconfig"; path = "Target Support Files/Pods-CapitalFMUITests/Pods-CapitalFMUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BD8FCF262BEABF0874A56D32 /* Pods_CapitalFMTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapitalFMTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD62A018018F30D2A9CED381 /* Pods_CapitalFM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapitalFM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1E6E5BF1B3F96B47AC31098 /* Pods-CapitalFMTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapitalFMTests.debug.xcconfig"; path = "Target Support Files/Pods-CapitalFMTests/Pods-CapitalFMTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E331B3D4C35A3AF2B68E5876 /* Pods-CapitalFM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapitalFM.debug.xcconfig"; path = "Target Support Files/Pods-CapitalFM/Pods-CapitalFM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8D3E203FB49CA0673DC58C0 /* Pods_CapitalFM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C871B1637F84356C7DAB3CC /* Pods_CapitalFMTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A09BC08AF32765E8BAE77AEC /* Pods_CapitalFMUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +106,8 @@
 				04F30A63232B6DFE002AB09E /* CapitalFMTests */,
 				04F30A6E232B6DFE002AB09E /* CapitalFMUITests */,
 				04F30A4D232B6DFC002AB09E /* Products */,
+				3A0516B2F1490F5CDB14F74A /* Pods */,
+				91AF1843C7AD939BC5AE00C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +134,7 @@
 				04F30A7F232B9160002AB09E /* LoginVC.swift */,
 				04F30A81232B9198002AB09E /* SignUpOptionsVC.swift */,
 				04F30A83232B91B5002AB09E /* HomeVC.swift */,
+				049E3CEC2330F8780020B797 /* SocialLoginVC.swift */,
 			);
 			path = CapitalFM;
 			sourceTree = "<group>";
@@ -137,6 +157,29 @@
 			path = CapitalFMUITests;
 			sourceTree = "<group>";
 		};
+		3A0516B2F1490F5CDB14F74A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E331B3D4C35A3AF2B68E5876 /* Pods-CapitalFM.debug.xcconfig */,
+				1DAD24FB91684DA1644BEDED /* Pods-CapitalFM.release.xcconfig */,
+				E1E6E5BF1B3F96B47AC31098 /* Pods-CapitalFMTests.debug.xcconfig */,
+				6C12B232B7D8718B51094815 /* Pods-CapitalFMTests.release.xcconfig */,
+				B18A81DF31D96368CBBB0C43 /* Pods-CapitalFMUITests.debug.xcconfig */,
+				89C6ACF877FC91C286A68D0C /* Pods-CapitalFMUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		91AF1843C7AD939BC5AE00C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD62A018018F30D2A9CED381 /* Pods_CapitalFM.framework */,
+				BD8FCF262BEABF0874A56D32 /* Pods_CapitalFMTests.framework */,
+				809EFDAA88CE8E9E97D3D907 /* Pods_CapitalFMUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +187,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04F30A74232B6DFE002AB09E /* Build configuration list for PBXNativeTarget "CapitalFM" */;
 			buildPhases = (
+				A332D0C796AAEF18F105B4B2 /* [CP] Check Pods Manifest.lock */,
 				04F30A48232B6DFC002AB09E /* Sources */,
 				04F30A49232B6DFC002AB09E /* Frameworks */,
 				04F30A4A232B6DFC002AB09E /* Resources */,
+				26EF6EF25390771560640C9A /* [CP] Embed Pods Frameworks */,
+				6219FC18B374CCF0A8F9459C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,6 +207,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04F30A77232B6DFE002AB09E /* Build configuration list for PBXNativeTarget "CapitalFMTests" */;
 			buildPhases = (
+				EE4DCC3B01CC98B6012EDC87 /* [CP] Check Pods Manifest.lock */,
 				04F30A5C232B6DFE002AB09E /* Sources */,
 				04F30A5D232B6DFE002AB09E /* Frameworks */,
 				04F30A5E232B6DFE002AB09E /* Resources */,
@@ -179,6 +226,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04F30A7A232B6DFE002AB09E /* Build configuration list for PBXNativeTarget "CapitalFMUITests" */;
 			buildPhases = (
+				6944E7B65707C26CFB1FC942 /* [CP] Check Pods Manifest.lock */,
 				04F30A67232B6DFE002AB09E /* Sources */,
 				04F30A68232B6DFE002AB09E /* Frameworks */,
 				04F30A69232B6DFE002AB09E /* Resources */,
@@ -263,6 +311,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		26EF6EF25390771560640C9A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CapitalFM/Pods-CapitalFM-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CapitalFM/Pods-CapitalFM-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CapitalFM/Pods-CapitalFM-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6219FC18B374CCF0A8F9459C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CapitalFM/Pods-CapitalFM-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CapitalFM/Pods-CapitalFM-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CapitalFM/Pods-CapitalFM-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6944E7B65707C26CFB1FC942 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CapitalFMUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A332D0C796AAEF18F105B4B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CapitalFM-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE4DCC3B01CC98B6012EDC87 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CapitalFMTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		04F30A48232B6DFC002AB09E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -273,6 +424,7 @@
 				04F30A50232B6DFC002AB09E /* AppDelegate.swift in Sources */,
 				04F30A84232B91B5002AB09E /* HomeVC.swift in Sources */,
 				04F30A80232B9160002AB09E /* LoginVC.swift in Sources */,
+				049E3CED2330F8780020B797 /* SocialLoginVC.swift in Sources */,
 				04F30A7E232B914B002AB09E /* LaunchVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,10 +598,13 @@
 		};
 		04F30A75232B6DFE002AB09E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E331B3D4C35A3AF2B68E5876 /* Pods-CapitalFM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XQ7GBADXN8;
 				INFOPLIST_FILE = CapitalFM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -463,10 +618,13 @@
 		};
 		04F30A76232B6DFE002AB09E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DAD24FB91684DA1644BEDED /* Pods-CapitalFM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XQ7GBADXN8;
 				INFOPLIST_FILE = CapitalFM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,6 +638,7 @@
 		};
 		04F30A78232B6DFE002AB09E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1E6E5BF1B3F96B47AC31098 /* Pods-CapitalFMTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -500,6 +659,7 @@
 		};
 		04F30A79232B6DFE002AB09E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C12B232B7D8718B51094815 /* Pods-CapitalFMTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -520,6 +680,7 @@
 		};
 		04F30A7B232B6DFE002AB09E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B18A81DF31D96368CBBB0C43 /* Pods-CapitalFMUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -539,6 +700,7 @@
 		};
 		04F30A7C232B6DFE002AB09E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89C6ACF877FC91C286A68D0C /* Pods-CapitalFMUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

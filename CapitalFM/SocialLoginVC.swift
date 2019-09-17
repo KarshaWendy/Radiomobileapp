@@ -1,20 +1,19 @@
 //
-//  LoginVC.swift
+//  SocialLoginVC.swift
 //  CapitalFM
 //
-//  Created by mac on 13/09/2019.
+//  Created by mac on 17/09/2019.
 //  Copyright © 2019 Smart Applications. All rights reserved.
 //
 
 import UIKit
-import GoogleSignIn
 
-class LoginVC: UIViewController {
+class SocialLoginVC: UIViewController {
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
     }
     

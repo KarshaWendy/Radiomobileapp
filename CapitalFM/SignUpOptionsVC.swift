@@ -7,25 +7,38 @@
 //
 
 import UIKit
+import GoogleSignIn
 
-class SignUpOptionsVC: UIViewController {
-
+class SignUpOptionsVC: UIViewController, GIDSignInDelegate  {
+    
+    @IBOutlet weak var btnGoogleSignIn: GIDSignInButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().delegate = self
+        
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+                print("The user has not signed in before or they have since signed out.")
+            } else {
+                print("\(error.localizedDescription)")
+            }
+            return
+        }
+        
+        let userId = user.userID                  // For client-side use only!
+        let idToken = user.authentication.idToken // Safe to send to the server
+        let fullName = user.profile.name
+        let givenName = user.profile.givenName
+        let familyName = user.profile.familyName
+        let email = user.profile.email
+        
+        performSegue(withIdentifier: "segueHome", sender: self)
     }
-    */
-
 }
