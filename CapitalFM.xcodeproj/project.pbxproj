@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		049DA35F2332382E00FC0543 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DA35E2332382E00FC0543 /* StoryCell.swift */; };
+		049DA36123323C4500FC0543 /* MyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DA36023323C4500FC0543 /* MyConstants.swift */; };
+		049DA3632332638000FC0543 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DA3622332638000FC0543 /* SignUpVC.swift */; };
 		049E3CED2330F8780020B797 /* SocialLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E3CEC2330F8780020B797 /* SocialLoginVC.swift */; };
+		049E3CEF233216CA0020B797 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E3CEE233216CA0020B797 /* Colors.swift */; };
 		04F30A50232B6DFC002AB09E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A4F232B6DFC002AB09E /* AppDelegate.swift */; };
 		04F30A52232B6DFC002AB09E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A51232B6DFC002AB09E /* ViewController.swift */; };
 		04F30A55232B6DFC002AB09E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F30A53232B6DFC002AB09E /* Main.storyboard */; };
@@ -42,7 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		049DA35E2332382E00FC0543 /* StoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
+		049DA36023323C4500FC0543 /* MyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConstants.swift; sourceTree = "<group>"; };
+		049DA3622332638000FC0543 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		049E3CEC2330F8780020B797 /* SocialLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginVC.swift; sourceTree = "<group>"; };
+		049E3CEE233216CA0020B797 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		04F30A4C232B6DFC002AB09E /* CapitalFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapitalFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F30A4F232B6DFC002AB09E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F30A51232B6DFC002AB09E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +107,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		049E3CF0233216D30020B797 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				049E3CEE233216CA0020B797 /* Colors.swift */,
+				049DA36023323C4500FC0543 /* MyConstants.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		049E3CF12332373D0020B797 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				049DA35E2332382E00FC0543 /* StoryCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		04F30A43232B6DFC002AB09E = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +149,8 @@
 		04F30A4E232B6DFC002AB09E /* CapitalFM */ = {
 			isa = PBXGroup;
 			children = (
+				049E3CF12332373D0020B797 /* cell */,
+				049E3CF0233216D30020B797 /* util */,
 				04F30A4F232B6DFC002AB09E /* AppDelegate.swift */,
 				04F30A51232B6DFC002AB09E /* ViewController.swift */,
 				04F30A53232B6DFC002AB09E /* Main.storyboard */,
@@ -135,6 +162,7 @@
 				04F30A81232B9198002AB09E /* SignUpOptionsVC.swift */,
 				04F30A83232B91B5002AB09E /* HomeVC.swift */,
 				049E3CEC2330F8780020B797 /* SocialLoginVC.swift */,
+				049DA3622332638000FC0543 /* SignUpVC.swift */,
 			);
 			path = CapitalFM;
 			sourceTree = "<group>";
@@ -420,9 +448,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F30A82232B9198002AB09E /* SignUpOptionsVC.swift in Sources */,
+				049DA36123323C4500FC0543 /* MyConstants.swift in Sources */,
+				049E3CEF233216CA0020B797 /* Colors.swift in Sources */,
+				049DA3632332638000FC0543 /* SignUpVC.swift in Sources */,
 				04F30A52232B6DFC002AB09E /* ViewController.swift in Sources */,
 				04F30A50232B6DFC002AB09E /* AppDelegate.swift in Sources */,
 				04F30A84232B91B5002AB09E /* HomeVC.swift in Sources */,
+				049DA35F2332382E00FC0543 /* StoryCell.swift in Sources */,
 				04F30A80232B9160002AB09E /* LoginVC.swift in Sources */,
 				049E3CED2330F8780020B797 /* SocialLoginVC.swift in Sources */,
 				04F30A7E232B914B002AB09E /* LaunchVC.swift in Sources */,
