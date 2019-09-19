@@ -8,11 +8,18 @@
 
 import UIKit
 import ImageSlideshow
+import AVKit
 
 class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var carousel: ImageSlideshow!
     @IBOutlet weak var collStories: UICollectionView!
+    @IBOutlet weak var viewListen: UIView!
+    @IBOutlet weak var ivListen: UIImageView!
+    @IBOutlet weak var viewMixes: UIView!
+    
+    var isPlaying: Bool!
+    var player: AVPlayer!
     
     let localSourceAds = [BundleImageSource(imageString: "images"), BundleImageSource(imageString: "images-2"), BundleImageSource(imageString: "3")]
     
@@ -22,8 +29,19 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Capital FM"
+        
+        viewListen.backgroundColor = UIColor.MyTheme.primaryColor
+        viewMixes.backgroundColor = UIColor.MyTheme.accentColor
+        
+        isPlaying = false
 
         setUpSlider()
+        
+        let tapListen = UITapGestureRecognizer(target: self, action: #selector(HomeVC.tappedView))
+        
+        viewListen.addGestureRecognizer(tapListen)
         // Do any additional setup after loading the view.
     }
     
@@ -55,5 +73,38 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         } else {
             return CGSize(width: (collStories.bounds.size.width/2)-4, height: CGFloat(ipadHeight))
         }
+    }
+    
+    @objc func tappedView(sender : UITapGestureRecognizer)
+    {
+        if isPlaying{
+            stopPlayer()
+        } else {
+            startPlayer()
+        }
+    }
+    
+    func startPlayer(){
+        if player == nil {
+            player = AVPlayer(url: URL(string: MyConstants().URL_LIVE_STREAM)!)
+            player.volume = 1.0
+            player.rate = 1.0
+        }
+        
+        player.play()
+//        if player.error != nil && player.rate != 0 {
+//            print("AAAA")
+//        } else {
+//            print("BBB")
+//        }
+        ivListen.image = nil
+        ivListen.image = UIImage(imageLiteralResourceName: "ic_pause")
+        isPlaying = true
+    }
+    
+    func stopPlayer() -> Void {
+        player.pause()
+        ivListen.image = UIImage(imageLiteralResourceName: "ic_play")
+        isPlaying = false
     }
 }

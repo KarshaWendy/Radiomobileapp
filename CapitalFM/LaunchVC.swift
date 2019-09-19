@@ -10,10 +10,18 @@ import UIKit
 
 class LaunchVC: UIViewController {
 
+    @IBOutlet weak var btnSignIn: UIButton!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.barTintColor = UIColor.MyTheme.primaryColor
+     
+        btnSignIn.backgroundColor = UIColor.MyTheme.accentColor
     }
     
 

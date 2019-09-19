@@ -10,9 +10,14 @@ import UIKit
 
 class SignUpVC: UIViewController {
 
+    @IBOutlet weak var btnSignUp: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.title = "Sign Up"
+        
+        btnSignUp.backgroundColor = UIColor.MyTheme.accentColor
         // Do any additional setup after loading the view.
     }
     

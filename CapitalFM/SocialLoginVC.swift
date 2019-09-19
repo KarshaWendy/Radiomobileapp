@@ -14,6 +14,7 @@ class SocialLoginVC: UIViewController {
         super.viewDidLoad()
 
         
+        self.navigationItem.title = "Login"
         // Do any additional setup after loading the view.
     }
     

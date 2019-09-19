@@ -11,7 +11,7 @@
 		049DA36123323C4500FC0543 /* MyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DA36023323C4500FC0543 /* MyConstants.swift */; };
 		049DA3632332638000FC0543 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DA3622332638000FC0543 /* SignUpVC.swift */; };
 		049E3CED2330F8780020B797 /* SocialLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E3CEC2330F8780020B797 /* SocialLoginVC.swift */; };
-		049E3CEF233216CA0020B797 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E3CEE233216CA0020B797 /* Colors.swift */; };
+		049E3CEF233216CA0020B797 /* MyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E3CEE233216CA0020B797 /* MyExtensions.swift */; };
 		04F30A50232B6DFC002AB09E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A4F232B6DFC002AB09E /* AppDelegate.swift */; };
 		04F30A52232B6DFC002AB09E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A51232B6DFC002AB09E /* ViewController.swift */; };
 		04F30A55232B6DFC002AB09E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F30A53232B6DFC002AB09E /* Main.storyboard */; };
@@ -50,7 +50,7 @@
 		049DA36023323C4500FC0543 /* MyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConstants.swift; sourceTree = "<group>"; };
 		049DA3622332638000FC0543 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		049E3CEC2330F8780020B797 /* SocialLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginVC.swift; sourceTree = "<group>"; };
-		049E3CEE233216CA0020B797 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		049E3CEE233216CA0020B797 /* MyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExtensions.swift; sourceTree = "<group>"; };
 		04F30A4C232B6DFC002AB09E /* CapitalFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapitalFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F30A4F232B6DFC002AB09E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F30A51232B6DFC002AB09E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		049E3CF0233216D30020B797 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				049E3CEE233216CA0020B797 /* Colors.swift */,
+				049E3CEE233216CA0020B797 /* MyExtensions.swift */,
 				049DA36023323C4500FC0543 /* MyConstants.swift */,
 			);
 			path = util;
@@ -449,7 +449,7 @@
 			files = (
 				04F30A82232B9198002AB09E /* SignUpOptionsVC.swift in Sources */,
 				049DA36123323C4500FC0543 /* MyConstants.swift in Sources */,
-				049E3CEF233216CA0020B797 /* Colors.swift in Sources */,
+				049E3CEF233216CA0020B797 /* MyExtensions.swift in Sources */,
 				049DA3632332638000FC0543 /* SignUpVC.swift in Sources */,
 				04F30A52232B6DFC002AB09E /* ViewController.swift in Sources */,
 				04F30A50232B6DFC002AB09E /* AppDelegate.swift in Sources */,

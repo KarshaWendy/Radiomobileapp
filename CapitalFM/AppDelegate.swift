@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         GIDSignIn.sharedInstance().clientID = "828926963122-piau0tthhriltebacd0f41176c21dr77.apps.googleusercontent.com"
         //GIDSignIn.sharedInstance().delegate = self
         
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        
         return true
     }
 

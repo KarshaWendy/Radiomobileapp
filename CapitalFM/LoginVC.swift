@@ -11,11 +11,18 @@ import GoogleSignIn
 
 class LoginVC: UIViewController {
 
+    @IBOutlet weak var btnSignIn: UIButton!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.navigationItem.title = "Login"
+        
+        btnSignIn.backgroundColor = UIColor.MyTheme.accentColor
     }
     
 

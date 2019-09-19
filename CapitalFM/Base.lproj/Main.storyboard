@@ -62,6 +62,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="yPf-vI-bFs"/>
+                    <connections>
+                        <outlet property="btnSignIn" destination="ar7-kH-XGN" id="tGd-BA-xlt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -173,6 +176,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eic-6a-upJ"/>
                     </view>
+                    <connections>
+                        <outlet property="btnSignIn" destination="vlJ-B1-xwD" id="y8B-gk-qSa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXz-Rb-MVe" sceneMemberID="firstResponder"/>
             </objects>
@@ -286,6 +292,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="bQB-0e-ffW"/>
                     <connections>
+                        <outlet property="btnCreate" destination="pHN-1b-78t" id="sOW-6o-gdl"/>
                         <outlet property="btnGoogleSignIn" destination="s9m-FI-8AR" id="ATF-eq-XDK"/>
                         <segue destination="78j-LT-eDT" kind="show" identifier="segueHome" id="fy4-wK-pRJ"/>
                     </connections>
@@ -412,7 +419,7 @@
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.57874745130000005" green="0.32151988149999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="3kS-6X-XSd" firstAttribute="leading" secondItem="uit-GA-glk" secondAttribute="leading" constant="8" id="0Mp-R1-1va"/>
                                                         <constraint firstAttribute="trailing" secondItem="c1R-8L-N3f" secondAttribute="trailing" constant="16" id="4vr-Mk-7Kd"/>
@@ -482,6 +489,9 @@
                     <connections>
                         <outlet property="carousel" destination="liU-xH-qzd" id="x1P-j9-21j"/>
                         <outlet property="collStories" destination="cqw-ts-lEI" id="fFg-f1-Ql0"/>
+                        <outlet property="ivListen" destination="D6d-bH-MG3" id="x2X-s9-kr2"/>
+                        <outlet property="viewListen" destination="gBB-zr-jTs" id="WNm-jo-MpE"/>
+                        <outlet property="viewMixes" destination="fi1-DW-0zh" id="MMz-g7-LNL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YUZ-SM-1h6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1026,6 +1036,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XgW-m3-THa"/>
                     </view>
+                    <connections>
+                        <outlet property="btnSignUp" destination="MER-al-28Z" id="QsH-Gm-D5n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xV9-qs-DHf" sceneMemberID="firstResponder"/>
             </objects>
@@ -1059,6 +1072,6 @@
         <image name="main" width="415" height="739"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="11Z-hp-TVC"/>
+        <segue reference="IG6-qe-PB5"/>
     </inferredMetricsTieBreakers>
 </document>

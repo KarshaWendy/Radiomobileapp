@@ -12,10 +12,17 @@ import GoogleSignIn
 class SignUpOptionsVC: UIViewController, GIDSignInDelegate  {
     
     @IBOutlet weak var btnGoogleSignIn: GIDSignInButton!
+    @IBOutlet weak var btnCreate: UIButton!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.navigationItem.title = "Sign Up"
+        btnCreate.backgroundColor = UIColor.MyTheme.accentColor
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().delegate = self
         
