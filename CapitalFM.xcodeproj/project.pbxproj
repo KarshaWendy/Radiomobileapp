@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045231C42334F8810088286C /* MixesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045231C32334F8800088286C /* MixesVC.swift */; };
+		045231C7233506DD0088286C /* Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045231C6233506DC0088286C /* Mix.swift */; };
 		049DA35F2332382E00FC0543 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DA35E2332382E00FC0543 /* StoryCell.swift */; };
 		049DA36123323C4500FC0543 /* MyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DA36023323C4500FC0543 /* MyConstants.swift */; };
 		049DA3632332638000FC0543 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DA3622332638000FC0543 /* SignUpVC.swift */; };
+		049DA3652334B9A400FC0543 /* MixCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DA3642334B9A400FC0543 /* MixCell.swift */; };
 		049E3CED2330F8780020B797 /* SocialLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E3CEC2330F8780020B797 /* SocialLoginVC.swift */; };
 		049E3CEF233216CA0020B797 /* MyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E3CEE233216CA0020B797 /* MyExtensions.swift */; };
 		04F30A50232B6DFC002AB09E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A4F232B6DFC002AB09E /* AppDelegate.swift */; };
@@ -46,9 +49,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		045231C32334F8800088286C /* MixesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixesVC.swift; sourceTree = "<group>"; };
+		045231C6233506DC0088286C /* Mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mix.swift; sourceTree = "<group>"; };
 		049DA35E2332382E00FC0543 /* StoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
 		049DA36023323C4500FC0543 /* MyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyConstants.swift; sourceTree = "<group>"; };
 		049DA3622332638000FC0543 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		049DA3642334B9A400FC0543 /* MixCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixCell.swift; sourceTree = "<group>"; };
 		049E3CEC2330F8780020B797 /* SocialLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginVC.swift; sourceTree = "<group>"; };
 		049E3CEE233216CA0020B797 /* MyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExtensions.swift; sourceTree = "<group>"; };
 		04F30A4C232B6DFC002AB09E /* CapitalFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapitalFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		045231C52335022D0088286C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				045231C6233506DC0088286C /* Mix.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		049E3CF0233216D30020B797 /* util */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				049DA35E2332382E00FC0543 /* StoryCell.swift */,
+				049DA3642334B9A400FC0543 /* MixCell.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -149,6 +164,7 @@
 		04F30A4E232B6DFC002AB09E /* CapitalFM */ = {
 			isa = PBXGroup;
 			children = (
+				045231C52335022D0088286C /* model */,
 				049E3CF12332373D0020B797 /* cell */,
 				049E3CF0233216D30020B797 /* util */,
 				04F30A4F232B6DFC002AB09E /* AppDelegate.swift */,
@@ -163,6 +179,7 @@
 				04F30A83232B91B5002AB09E /* HomeVC.swift */,
 				049E3CEC2330F8780020B797 /* SocialLoginVC.swift */,
 				049DA3622332638000FC0543 /* SignUpVC.swift */,
+				045231C32334F8800088286C /* MixesVC.swift */,
 			);
 			path = CapitalFM;
 			sourceTree = "<group>";
@@ -453,11 +470,14 @@
 				049DA3632332638000FC0543 /* SignUpVC.swift in Sources */,
 				04F30A52232B6DFC002AB09E /* ViewController.swift in Sources */,
 				04F30A50232B6DFC002AB09E /* AppDelegate.swift in Sources */,
+				049DA3652334B9A400FC0543 /* MixCell.swift in Sources */,
 				04F30A84232B91B5002AB09E /* HomeVC.swift in Sources */,
 				049DA35F2332382E00FC0543 /* StoryCell.swift in Sources */,
 				04F30A80232B9160002AB09E /* LoginVC.swift in Sources */,
+				045231C7233506DD0088286C /* Mix.swift in Sources */,
 				049E3CED2330F8780020B797 /* SocialLoginVC.swift in Sources */,
 				04F30A7E232B914B002AB09E /* LaunchVC.swift in Sources */,
+				045231C42334F8810088286C /* MixesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -16,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        GIDSignIn.sharedInstance().clientID = "828926963122-piau0tthhriltebacd0f41176c21dr77.apps.googleusercontent.com"
+        TWTRTwitter.sharedInstance().start(withConsumerKey:"hTpkPVU4pThkM0", consumerSecret:"ovEqziMzLpUOF163Qg2mj")
+        
+        GIDSignIn.sharedInstance().clientID = MyConstants().GOOGLE_CLIENT_ID
         //GIDSignIn.sharedInstance().delegate = self
         
         UINavigationBar.appearance().tintColor = UIColor.white
@@ -48,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+//        return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
         return GIDSignIn.sharedInstance().handle(url)
     }
 }
