@@ -18,7 +18,7 @@ class LaunchVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationController?.navigationBar.barTintColor = UIColor.MyTheme.primaryColor
      
         btnSignIn.backgroundColor = UIColor.MyTheme.accentColor

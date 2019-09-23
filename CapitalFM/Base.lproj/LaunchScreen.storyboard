@@ -18,17 +18,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="nK5-I6-ieZ">
-                                <rect key="frame" x="-15" y="140" width="350" height="200"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="nK5-I6-ieZ">
+                                <rect key="frame" x="35" y="115" width="250" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="3d8-m1-yAF"/>
-                                    <constraint firstAttribute="width" constant="350" id="imp-ov-Wvm"/>
+                                    <constraint firstAttribute="height" constant="250" id="3d8-m1-yAF"/>
+                                    <constraint firstAttribute="width" constant="250" id="imp-ov-Wvm"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_wide" translatesAutoresizingMaskIntoConstraints="NO" id="afA-Dw-gtf">
+                                <rect key="frame" x="0.0" y="436" width="108" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="2Lk-R6-ZjL"/>
+                                    <constraint firstAttribute="width" constant="108" id="ON8-BI-Mr7"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2M-L2-OMA">
+                                <rect key="frame" x="8" y="416" width="72" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nK5-I6-ieZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="2CS-2B-lvO"/>
+                            <constraint firstItem="afA-Dw-gtf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6HZ-hU-fhF"/>
+                            <constraint firstItem="afA-Dw-gtf" firstAttribute="top" secondItem="I2M-L2-OMA" secondAttribute="bottom" constant="4" id="GpA-iY-adA"/>
+                            <constraint firstItem="afA-Dw-gtf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Xso-xl-6zz"/>
+                            <constraint firstItem="I2M-L2-OMA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Ylx-MV-P4V"/>
                             <constraint firstItem="nK5-I6-ieZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gIS-Si-K7x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -40,6 +57,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_placeholder" width="400" height="266.66665649414062"/>
+        <image name="logo" width="512" height="512"/>
+        <image name="logo_wide" width="1024" height="500"/>
     </resources>
 </document>
