@@ -10,7 +10,7 @@ import UIKit
 import ImageSlideshow
 import AVKit
 
-class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var carousel: ImageSlideshow!
     @IBOutlet weak var collStories: UICollectionView!
@@ -22,6 +22,8 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     var player: AVPlayer!
     
     let localSourceAds = [BundleImageSource(imageString: "images"), BundleImageSource(imageString: "images-2"), BundleImageSource(imageString: "3")]
+    
+    let storyImages = [UIImage(named: "news3"), UIImage(named: "news2"), UIImage(named: "news1")]
     
     override func viewWillAppear(_ animated: Bool) {
         carousel.unpauseTimer()
@@ -39,9 +41,13 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
 
         setUpSlider()
         
-        let tapListen = UITapGestureRecognizer(target: self, action: #selector(HomeVC.tappedView))
+        let tapListen = UITapGestureRecognizer(target: self, action: #selector(HomeVC.tappedListen))
         
         viewListen.addGestureRecognizer(tapListen)
+        
+        let tapMixes = UITapGestureRecognizer(target: self, action: #selector(HomeVC.tappedMixes))
+        
+        viewMixes.addGestureRecognizer(tapMixes)
         // Do any additional setup after loading the view.
     }
     
@@ -54,34 +60,40 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! StoryCell
         cell.tvSummary.text = MyConstants().dummyText
+        cell.iv.image = storyImages[indexPath.row]
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let myHeight = 100
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let iphoneHeight = 100
         let ipadHeight = 140
         
         if(UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone) {
-            return CGSize(width: collStories.bounds.size.width - 4, height: CGFloat(myHeight))
+            return CGSize(width: collStories.bounds.size.width - 4, height: CGFloat(iphoneHeight))
         } else {
             return CGSize(width: (collStories.bounds.size.width/2)-4, height: CGFloat(ipadHeight))
         }
     }
     
-    @objc func tappedView(sender : UITapGestureRecognizer)
+    @objc func tappedListen(sender : UITapGestureRecognizer)
     {
         if isPlaying{
             stopPlayer()
         } else {
             startPlayer()
         }
+    }
+    
+    @objc func tappedMixes(sender : UITapGestureRecognizer)
+    {
+        performSegue(withIdentifier: "segueMixes", sender: self)
     }
     
     func startPlayer(){

@@ -11,13 +11,15 @@ import AVKit
 import Alamofire
 import SwiftyJSON
 import MBProgressHUD
+import Kingfisher
 
-class MixesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MixesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collView: UICollectionView!
     var player : AVPlayer!
     var mixes = [Mix]()
     var appUtil = AppUtil()
+    var isPlaying = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,36 +46,104 @@ class MixesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         } else {
             cell.btnPlay.isHidden = true
         }
-        
         cell.btnDownload.addTarget(self, action: #selector(self.tappedDownload(sender:)), for: .touchUpInside)
+//        if mixes[indexPath.row].downloadable == true {
+//            cell.btnDownload.addTarget(self, action: #selector(self.tappedDownload(sender:)), for: .touchUpInside)
+//        } else {
+//            cell.btnDownload.isHidden = true
+//        }
+        if !mixes[indexPath.row].artwork_url.isEmpty{
+            let url = URL(string: mixes[indexPath.row].artwork_url)
+            cell.iv.kf.setImage(with: url)
+        }
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let myHeight = 80
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let iphoneHeight = 80
         let ipadHeight = 120
         
         if(UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone) {
-            return CGSize(width: collView.bounds.size.width - 4, height: CGFloat(myHeight))
+            return CGSize(width: collView.bounds.size.width - 4, height: CGFloat(iphoneHeight))
         } else {
             return CGSize(width: (collView.bounds.size.width/2)-4, height: CGFloat(ipadHeight))
         }
     }
     
     @objc func tappedPlay(sender : UIButton){
-        let streamUrl = mixes[sender.tag].stream_url + "?client_id=" + MyConstants().SOUNDCLOUD_CLIENT_ID
-//        player = AVPlayer(url: URL(string: "https://api.soundcloud.com/tracks/685412626/stream?client_id=62d04bb9b214abbc31cae1334a28e8ed")!)
-        player = AVPlayer(url: URL(string: streamUrl)!)
-        player.volume = 1.0
-        player.rate = 1.0
-        player.play()
+        
+        if isPlaying{
+            if player != nil {
+                player.pause()
+            }
+            
+            isPlaying = false
+            
+            sender.imageView?.image = UIImage(imageLiteralResourceName: "ic_play")
+        } else {
+            let streamUrl = mixes[sender.tag].stream_url + "?client_id=" + MyConstants().SOUNDCLOUD_CLIENT_ID
+            //        player = AVPlayer(url: URL(string: "https://api.soundcloud.com/tracks/685412626/stream?client_id=62d04bb9b214abbc31cae1334a28e8ed")!)
+            player = AVPlayer(url: URL(string: streamUrl)!)
+            player.volume = 1.0
+            player.rate = 1.0
+            player.play()
+            
+            isPlaying = true
+            
+            sender.imageView?.image = UIImage(imageLiteralResourceName: "ic_pause")
+        }
+        
         
 //        sender.imageView?.image = UIImage(imageLiteralResourceName: "ic_pause_black")
     }
     
     @objc func tappedDownload(sender : UIButton){
+        print("starting")
+//        Alamofire.request("https://api.soundcloud.com/tracks/685412359/download?client_id=62d04bb9b214abbc31cae1334a28e8ed").response {
+//            response in
+//            print(response.data)
+//        }
         
+        let url = "https://api.soundcloud.com/tracks/685412359/download?client_id=62d04bb9b214abbc31cae1334a28e8ed"
+        
+        let destination = DownloadRequest.suggestedDownloadDestination()
+        
+//        Alamofire.download(url, to: destination).response { response in // method defaults to `.get`
+////            print(response.request)
+//            print("myres")
+//            print(response.response)
+//            print("my1")
+//            print(response.temporaryURL)
+//            print("my2")
+//            print(response.destinationURL)
+//            print("my3")
+//            print(response.error)
+//        }
+        
+//        let destination = DownloadRequest.suggestedDownloadDestination(for: .musicDirectory)
+
+
+        Alamofire.download(
+            url,
+            method: .get,
+            parameters: nil,
+            encoding: JSONEncoding.default,
+            headers: nil,
+            to: destination).downloadProgress(closure: { (progress) in
+
+
+                //progress closure
+            }).response(completionHandler: { (DefaultDownloadResponse) in
+                //here you able to access the DefaultDownloadResponse
+                //result closure
+//                print(DefaultDownloadResponse)
+                if DefaultDownloadResponse.error != nil {
+                    self.appUtil.showAlert(title: "Error", msg: DefaultDownloadResponse.error!.localizedDescription)
+                } else {
+                    self.appUtil.showAlert(title: "Complete", msg: "Download completed successfully")
+                }
+            })
         
     }
     
@@ -100,7 +170,6 @@ class MixesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
                 let uri = mixesJson[i]["uri"].string ?? ""
                 let stream_url = mixesJson[i]["stream_url"].string ?? ""
                 
-//                self.mixes.append(Mix(downloadable: downloadable, created_at: created_at, title: title, duration: duration, artwork_url: artwork_url, streamable: streamable, download_url: download_url, uri: uri, stream_url: stream_url))
                 self.mixes.append(Mix(downloadable: downloadable, created_at: created_at, title: title, duration: duration, artwork_url: artwork_url, streamable: streamable, download_url: download_url, uri: uri, stream_url: stream_url))
             }
             
