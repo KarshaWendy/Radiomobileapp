@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0429B18E233B6DDC00047E8D /* PlayMixVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0429B18D233B6DDC00047E8D /* PlayMixVC.swift */; };
+		0429B190233B73D300047E8D /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0429B18F233B73D300047E8D /* DateUtil.swift */; };
 		045231C42334F8810088286C /* MixesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045231C32334F8800088286C /* MixesVC.swift */; };
 		045231C7233506DD0088286C /* Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045231C6233506DC0088286C /* Mix.swift */; };
 		049DA35F2332382E00FC0543 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DA35E2332382E00FC0543 /* StoryCell.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0429B18D233B6DDC00047E8D /* PlayMixVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMixVC.swift; sourceTree = "<group>"; };
+		0429B18F233B73D300047E8D /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		045231C32334F8800088286C /* MixesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixesVC.swift; sourceTree = "<group>"; };
 		045231C6233506DC0088286C /* Mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mix.swift; sourceTree = "<group>"; };
 		049DA35E2332382E00FC0543 /* StoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
@@ -115,6 +119,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0429B18C233B6B7C00047E8D /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				04F30A7D232B914A002AB09E /* LaunchVC.swift */,
+				04F30A7F232B9160002AB09E /* LoginVC.swift */,
+				04F30A81232B9198002AB09E /* SignUpOptionsVC.swift */,
+				04F30A83232B91B5002AB09E /* HomeVC.swift */,
+				049E3CEC2330F8780020B797 /* SocialLoginVC.swift */,
+				049DA3622332638000FC0543 /* SignUpVC.swift */,
+				045231C32334F8800088286C /* MixesVC.swift */,
+				0429B18D233B6DDC00047E8D /* PlayMixVC.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
 		045231C52335022D0088286C /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +148,7 @@
 				049E3CEE233216CA0020B797 /* MyExtensions.swift */,
 				049DA36023323C4500FC0543 /* MyConstants.swift */,
 				04BAD3172338C41D00BB56DA /* AppUtil.swift */,
+				0429B18F233B73D300047E8D /* DateUtil.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -167,22 +187,16 @@
 		04F30A4E232B6DFC002AB09E /* CapitalFM */ = {
 			isa = PBXGroup;
 			children = (
-				045231C52335022D0088286C /* model */,
-				049E3CF12332373D0020B797 /* cell */,
-				049E3CF0233216D30020B797 /* util */,
+				04F30A5B232B6DFE002AB09E /* Info.plist */,
 				04F30A4F232B6DFC002AB09E /* AppDelegate.swift */,
 				04F30A51232B6DFC002AB09E /* ViewController.swift */,
+				04F30A58232B6DFE002AB09E /* LaunchScreen.storyboard */,
 				04F30A53232B6DFC002AB09E /* Main.storyboard */,
 				04F30A56232B6DFE002AB09E /* Assets.xcassets */,
-				04F30A58232B6DFE002AB09E /* LaunchScreen.storyboard */,
-				04F30A5B232B6DFE002AB09E /* Info.plist */,
-				04F30A7D232B914A002AB09E /* LaunchVC.swift */,
-				04F30A7F232B9160002AB09E /* LoginVC.swift */,
-				04F30A81232B9198002AB09E /* SignUpOptionsVC.swift */,
-				04F30A83232B91B5002AB09E /* HomeVC.swift */,
-				049E3CEC2330F8780020B797 /* SocialLoginVC.swift */,
-				049DA3622332638000FC0543 /* SignUpVC.swift */,
-				045231C32334F8800088286C /* MixesVC.swift */,
+				049E3CF12332373D0020B797 /* cell */,
+				045231C52335022D0088286C /* model */,
+				0429B18C233B6B7C00047E8D /* ui */,
+				049E3CF0233216D30020B797 /* util */,
 			);
 			path = CapitalFM;
 			sourceTree = "<group>";
@@ -472,8 +486,10 @@
 				049E3CEF233216CA0020B797 /* MyExtensions.swift in Sources */,
 				04BAD3182338C41D00BB56DA /* AppUtil.swift in Sources */,
 				049DA3632332638000FC0543 /* SignUpVC.swift in Sources */,
+				0429B190233B73D300047E8D /* DateUtil.swift in Sources */,
 				04F30A52232B6DFC002AB09E /* ViewController.swift in Sources */,
 				04F30A50232B6DFC002AB09E /* AppDelegate.swift in Sources */,
+				0429B18E233B6DDC00047E8D /* PlayMixVC.swift in Sources */,
 				049DA3652334B9A400FC0543 /* MixCell.swift in Sources */,
 				04F30A84232B91B5002AB09E /* HomeVC.swift in Sources */,
 				049DA35F2332382E00FC0543 /* StoryCell.swift in Sources */,

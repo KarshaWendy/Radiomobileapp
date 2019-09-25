@@ -11,7 +11,7 @@ import UIKit
 class MixCell: UICollectionViewCell {
     @IBOutlet weak var iv: UIImageView!
     @IBOutlet weak var tvTitle: UILabel!
+    @IBOutlet weak var tvDuration: UILabel!
+    @IBOutlet weak var tvDate: UILabel!
     
-    @IBOutlet weak var btnPlay: UIButton!
-    @IBOutlet weak var btnDownload: UIButton!
 }

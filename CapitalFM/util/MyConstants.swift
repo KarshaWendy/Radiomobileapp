@@ -10,10 +10,14 @@ import Foundation
 class MyConstants {
     let URL_LIVE_STREAM = "https://icecast2.getstreamhosting.com:8050/stream.mp3"
     
+    //feed
+    let URL_FEED_NEWS = "https://www.capitalfm.co.ke/news/feed/"
+    let URL_FEED_SAUCE = "https://www.capitalfm.co.ke/thesauce/feed/"
+    
     //souncloud
     let SOUNDCLOUD_CLIENT_ID = "62d04bb9b214abbc31cae1334a28e8ed"
     let SOUNDCLOUD_CLIENT_SECRET = "50d544ec31928cf35e1a1567e06deac4"
-    let URL_FETCH_MIXES = "http://api.soundcloud.com/tracks?filter=public&limit=50&client_id=62d04bb9b214abbc31cae1334a28e8ed"
+    let URL_FETCH_MIXES = "https://api.soundcloud.com/users/27162382/tracks?client_id=62d04bb9b214abbc31cae1334a28e8ed"
     
     //Google
     let GOOGLE_CLIENT_ID = "828926963122-piau0tthhriltebacd0f41176c21dr77.apps.googleusercontent.com"

@@ -21,7 +21,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     var isPlaying: Bool!
     var player: AVPlayer!
     
-    let localSourceAds = [BundleImageSource(imageString: "images"), BundleImageSource(imageString: "images-2"), BundleImageSource(imageString: "3")]
+    let localSourceAds = [BundleImageSource(imageString: "radio4"), BundleImageSource(imageString: "radio3"), BundleImageSource(imageString: "radio2"), BundleImageSource(imageString: "radio1")]
     
     let storyImages = [UIImage(named: "news3"), UIImage(named: "news2"), UIImage(named: "news1")]
     
@@ -52,7 +52,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func setUpSlider(){
-        carousel.contentScaleMode = UIViewContentMode.scaleAspectFill
+        carousel.contentScaleMode = UIViewContentMode.scaleToFill
         carousel.slideshowInterval = 4.0
         //carousel.pageControlPosition = PageControlPosition.hidden
         carousel.draggingEnabled = true

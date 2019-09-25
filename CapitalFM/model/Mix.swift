@@ -12,10 +12,11 @@ struct Mix {
     var downloadable: Bool
     var created_at: String
     var title: String
-    var duration: String
+    var duration: Int
     var artwork_url: String
     var streamable: Bool
     var download_url: String
-    var uri: String
+    var favoritings_count: String
+    var permalink_url: String
     var stream_url: String
 }
