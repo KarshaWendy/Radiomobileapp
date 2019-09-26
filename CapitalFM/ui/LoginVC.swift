@@ -12,6 +12,7 @@ import GoogleSignIn
 class LoginVC: UIViewController {
 
     @IBOutlet weak var btnSignIn: UIButton!
+    @IBOutlet weak var viewFB: UIView!
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
@@ -22,7 +23,9 @@ class LoginVC: UIViewController {
         
         self.navigationItem.title = "Login"
         
-        btnSignIn.backgroundColor = UIColor.MyTheme.accentColor
+        btnSignIn.backgroundColor = UIColor.MyTheme.primaryColor
+        
+        viewFB.backgroundColor = UIColor.MyTheme.fbColor
     }
     
 

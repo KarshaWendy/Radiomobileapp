@@ -9,6 +9,7 @@
 import UIKit
 import ImageSlideshow
 import AVKit
+import MBProgressHUD
 
 class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -20,6 +21,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     var isPlaying: Bool!
     var player: AVPlayer!
+    var loader: MBProgressHUD!
     
     let localSourceAds = [BundleImageSource(imageString: "radio4"), BundleImageSource(imageString: "radio3"), BundleImageSource(imageString: "radio2"), BundleImageSource(imageString: "radio1")]
     
@@ -40,6 +42,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         isPlaying = false
 
         setUpSlider()
+        setUpPlayer()
         
         let tapListen = UITapGestureRecognizer(target: self, action: #selector(HomeVC.tappedListen))
         
@@ -48,7 +51,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         let tapMixes = UITapGestureRecognizer(target: self, action: #selector(HomeVC.tappedMixes))
         
         viewMixes.addGestureRecognizer(tapMixes)
-        // Do any additional setup after loading the view.
+        
     }
     
     func setUpSlider(){
@@ -96,20 +99,17 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         performSegue(withIdentifier: "segueMixes", sender: self)
     }
     
+    func setUpPlayer(){
+        player = AVPlayer(url: URL(string: MyConstants().URL_LIVE_STREAM)!)
+        player.volume = 1.0
+    }
+    
     func startPlayer(){
-        if player == nil {
-            player = AVPlayer(url: URL(string: MyConstants().URL_LIVE_STREAM)!)
-            player.volume = 1.0
-            player.rate = 1.0
-        }
+        loader = MBProgressHUD.showAdded(to: viewListen, animated: true)
         
+//        player.rate = 1.0
         player.play()
-//        if player.error != nil && player.rate != 0 {
-//            print("AAAA")
-//        } else {
-//            print("BBB")
-//        }
-        ivListen.image = nil
+        player.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil)
         ivListen.image = UIImage(imageLiteralResourceName: "ic_pause")
         isPlaying = true
     }
@@ -118,5 +118,11 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         player.pause()
         ivListen.image = UIImage(imageLiteralResourceName: "ic_play")
         isPlaying = false
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "currentItem.loadedTimeRanges"{
+            loader.hide(animated: true)
+        }
     }
 }
