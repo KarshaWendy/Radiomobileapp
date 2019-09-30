@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import FacebookCore
+import FacebookLogin
+import FBSDKCoreKit
 
-class LaunchVC: UIViewController {
+class LaunchVC: UIViewController, LoginButtonDelegate {
 
     @IBOutlet weak var btnSignIn: UIButton!
     
@@ -22,17 +25,16 @@ class LaunchVC: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.MyTheme.primaryColor
      
         btnSignIn.backgroundColor = UIColor.MyTheme.accentColor
+        
+        let btn = FBLoginButton(frame: CGRect(x: 137, y: 100, width: 100, height: 50), permissions: [.publicProfile])
+        self.view.addSubview(btn)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        <#code#>
     }
-    */
-
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        //logout
+    }
 }

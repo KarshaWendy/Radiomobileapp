@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVKit
 
 class DateUtil {
     func formatDuration(duration: Int) -> String {
@@ -18,6 +19,15 @@ class DateUtil {
         formatter.zeroFormattingBehavior = [ .pad ]
         
         return formatter.string(from: d)!
+    }
+    
+    func formatDuration(duration: CMTime) -> String {
+        let seconds = CMTimeGetSeconds(duration)
+        let secondsString = String(format: "%02d", Int(seconds) % 60)
+        let minsString = String(format: "%02d", Int(seconds) / 60)
+        let hrsString = String(format: "%02d", Int(seconds) / (60 * 60))
+        
+        return "\(hrsString):\(minsString):\(secondsString)"
     }
     
     func formatDate(theDate: String, inputFormat: String) -> String {

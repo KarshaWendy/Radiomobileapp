@@ -8,6 +8,8 @@
 
 import UIKit
 import GoogleSignIn
+import FacebookCore
+import FBSDKCoreKit
 //import TwitterKit
 
 @UIApplicationMain
@@ -17,9 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 //        TWTRTwitter.sharedInstance().start(withConsumerKey:"hTpkPVU4pThkM0", consumerSecret:"ovEqziMzLpUOF163Qg2mj")
         
-        GIDSignIn.sharedInstance().clientID = MyConstants().GOOGLE_CLIENT_ID
+//        GIDSignIn.sharedInstance().clientID = MyConstants().GOOGLE_CLIENT_ID
         //GIDSignIn.sharedInstance().delegate = self
         
         UINavigationBar.appearance().tintColor = UIColor.white
@@ -51,8 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return ApplicationDelegate.shared.application(app, open: url, options: options)
 //        return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
-        return GIDSignIn.sharedInstance().handle(url)
+//        return GIDSignIn.sharedInstance().handle(url)
     }
 }
 

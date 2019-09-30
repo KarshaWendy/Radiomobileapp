@@ -17,8 +17,8 @@ class PlayMixVC: UIViewController {
     @IBOutlet weak var tvTitle: UILabel!
     @IBOutlet weak var tvCount: UILabel!
     @IBOutlet weak var tvDuration: UILabel!
-    @IBOutlet weak var bar: UIProgressView!
     @IBOutlet weak var btnPlay: UIButton!
+    @IBOutlet weak var slider: UISlider!
     
     var mix : Mix!
     var player : AVPlayer!
@@ -38,11 +38,9 @@ class PlayMixVC: UIViewController {
             let url = URL(string: mix.artwork_url)
             iv.kf.setImage(with: url)
         }
-        
-        let streamUrl = mix.stream_url + "?client_id=" + MyConstants().SOUNDCLOUD_CLIENT_ID
-        player = AVPlayer(url: URL(string: streamUrl)!)
-        player.volume = 1.0
-        // Do any additional setup after loading the view.
+        loader = MBProgressHUD.showAdded(to: self.view, animated: true)
+        setUpPlayer()
+        setUpSlider()
     }
     
     @IBAction func btnPlay(_ sender: Any) {
@@ -51,15 +49,12 @@ class PlayMixVC: UIViewController {
             isPlaying = false
             btnPlay.setImage(UIImage(imageLiteralResourceName: "ic_play_black"), for: .normal)
         } else {
-            if mix.stream_url.isEmpty{
-                appUtil.showAlert(title: "", msg: "Cannot stream this track")
-                return
-            }
-            
             loader = MBProgressHUD.showAdded(to: self.view, animated: true)
-            player.play()
-            player.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil)
-            
+            if #available(iOS 10.0, *) {
+                player?.playImmediately(atRate: 1.0)
+            } else {
+                player?.play()
+            }
             isPlaying = true
             btnPlay.setImage(UIImage(imageLiteralResourceName: "ic_pause_black"), for: .normal)
         }
@@ -71,4 +66,50 @@ class PlayMixVC: UIViewController {
         }
     }
 
+    func setUpPlayer(){
+        let streamUrl = mix.stream_url + "?client_id=" + MyConstants().SOUNDCLOUD_CLIENT_ID
+        player = AVPlayer(url: URL(string: streamUrl)!)
+        player.volume = 1.0
+        if #available(iOS 10.0, *) {
+            player?.playImmediately(atRate: 1.0)
+        } else {
+            player?.play()
+        }
+        player.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil)
+        let interval = CMTime(value: 1, timescale: 2)
+        player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: {(progressTime) in
+            let seconds = CMTimeGetSeconds(progressTime)
+            let secondsString = String(format: "%02d", Int(seconds) % 60)
+            let minsString = String(format: "%02d", Int(seconds) / 60)
+            let hrsString = String(format: "%02d", Int(seconds) / (60 * 60))
+            
+            self.tvCount.text = "\(hrsString):\(minsString):\(secondsString)"
+            
+            if let duration = self.player.currentItem?.duration {
+                let secs = CMTimeGetSeconds(duration)
+                self.slider.value = Float(seconds/secs)
+            }
+        })
+        
+        isPlaying = true
+        
+        btnPlay.setImage(UIImage(imageLiteralResourceName: "ic_pause_black"), for: .normal)
+    }
+    
+    func setUpSlider(){
+        slider.setThumbImage(UIImage(named: "ic_slider"), for: .normal)
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.addTarget(self, action: #selector(handleSliderChange), for: .valueChanged)
+    }
+    
+    @objc func handleSliderChange(){
+        if let duration = player.currentItem?.duration {
+            let totalSeconds = CMTimeGetSeconds(duration)
+            let value = Float64(slider.value) * totalSeconds
+            let seekTime = CMTime(value: Int64(value), timescale: 1)
+            player.seek(to: seekTime, completionHandler: {(completedSeek) in
+                
+            })
+        }
+    }
 }

@@ -35,6 +35,7 @@ class HomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         super.viewDidLoad()
         
         self.navigationItem.title = "Capital FM"
+        self.navigationController?.navigationBar.barTintColor = UIColor.MyTheme.primaryColor
         
         viewListen.backgroundColor = UIColor.MyTheme.primaryColor
         viewMixes.backgroundColor = UIColor.MyTheme.accentColor
