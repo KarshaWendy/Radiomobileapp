@@ -9,7 +9,7 @@
 import UIKit
 import GoogleSignIn
 import FacebookCore
-import FBSDKCoreKit
+//import FBSDKCoreKit
 //import TwitterKit
 
 @UIApplicationMain

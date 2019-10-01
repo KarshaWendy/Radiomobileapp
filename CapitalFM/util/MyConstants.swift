@@ -11,8 +11,9 @@ class MyConstants {
     let URL_LIVE_STREAM = "https://icecast2.getstreamhosting.com:8050/stream.mp3"
     
     //feed
-    let URL_FEED_NEWS = "https://www.capitalfm.co.ke/news/feed/"
-    let URL_FEED_SAUCE = "https://www.capitalfm.co.ke/thesauce/feed/"
+    let URL_FEED_NEWS = "https://www.capitalfm.co.ke/news/wp-json/wp/v2/posts"
+    let URL_FEED_SAUCE = "https://www.capitalfm.co.ke/thesauce/wp-json/wp/v2/posts"
+    let URL_FEED_LIFESTYLE = "https://www.capitalfm.co.ke/lifestyle/wp-json/wp/v2/posts"
     
     //souncloud
     let SOUNDCLOUD_CLIENT_ID = "62d04bb9b214abbc31cae1334a28e8ed"
