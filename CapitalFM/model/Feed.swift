@@ -9,14 +9,15 @@
 import Foundation
 
 struct Feed {
-    var downloadable: Bool
-    var created_at: String
-    var title: String
-    var duration: Int
-    var artwork_url: String
-    var streamable: Bool
-    var download_url: String
-    var favoritings_count: String
-    var permalink_url: String
-    var stream_url: String
+    var link: String
+    var title: Title
+    var content: Content
+}
+
+struct Title {
+    var rendered: String
+}
+
+struct Content {
+    var rendered: String
 }

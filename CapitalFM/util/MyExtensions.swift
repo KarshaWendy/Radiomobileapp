@@ -21,3 +21,13 @@ extension UIColor {
         static var fbColor: UIColor { return UIColor(red: 59/255, green: 89/255, blue: 152/255, alpha: 1) }
     }
 }
+extension String {
+    var htmlDecoded: String {
+        let decoded = try? NSAttributedString(data: Data(utf8), options: [
+            .documentType: NSAttributedString.DocumentType.html,
+            .characterEncoding: String.Encoding.utf8.rawValue
+            ], documentAttributes: nil).string
+        
+        return decoded ?? self
+    }
+}
