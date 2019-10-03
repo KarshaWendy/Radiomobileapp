@@ -11,13 +11,14 @@ import Foundation
 struct Feed {
     var link: String
     var title: Title
-    var content: Content
+    var imageUrl: String
+//    var content: Content
 }
 
 struct Title {
     var rendered: String
 }
 
-struct Content {
-    var rendered: String
-}
+//struct Content {
+//    var rendered: String
+//}

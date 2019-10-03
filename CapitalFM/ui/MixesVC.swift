@@ -176,7 +176,7 @@ class MixesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             
 //            print(mixesJson)
             
-            for i in 1 ..< mixesJson.count{
+            for i in 0 ..< mixesJson.count{
                 let downloadable = mixesJson[i]["downloadable"].bool ?? false
                 let created_at = mixesJson[i]["created_at"].string ?? ""
                 let title = mixesJson[i]["title"].string ?? ""

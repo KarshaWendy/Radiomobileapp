@@ -26,14 +26,14 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_wide" translatesAutoresizingMaskIntoConstraints="NO" id="afA-Dw-gtf">
-                                <rect key="frame" x="0.0" y="436" width="108" height="44"/>
+                                <rect key="frame" x="0.0" y="440" width="108" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="2Lk-R6-ZjL"/>
+                                    <constraint firstAttribute="height" constant="40" id="2Lk-R6-ZjL"/>
                                     <constraint firstAttribute="width" constant="108" id="ON8-BI-Mr7"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2M-L2-OMA">
-                                <rect key="frame" x="8" y="416" width="72" height="16"/>
+                                <rect key="frame" x="8" y="420" width="72" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

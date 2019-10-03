@@ -12,29 +12,29 @@ import Alamofire
 import SwiftyJSON
 import MBProgressHUD
 
-class NewsVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+class SauceVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     @IBOutlet weak var collView: UICollectionView!
     
-    var newsArray = [Feed]()
+    var sauceArray = [Feed]()
     var appUtil = AppUtil()
     var selectedUrl : URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        fetchNews()
+        
+        fetchSauce()
         // Do any additional setup after loading the view.
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return newsArray.count
+        return sauceArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NewsCell
         
-        let item = newsArray[indexPath.row]
+        let item = sauceArray[indexPath.row]
         cell.title.text = item.title.rendered
         
         let imageUrl = URL(string: item.imageUrl)
@@ -55,7 +55,7 @@ class NewsVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedUrl = URL(string: newsArray[indexPath.row].link)
+        selectedUrl = URL(string: sauceArray[indexPath.row].link)
         performSegue(withIdentifier: "segueWeb", sender: self)
     }
     
@@ -65,18 +65,18 @@ class NewsVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func matchesForRegexInText(regex: String!, text: String!) -> [String] {
-    
-        do {
         
+        do {
+            
             let regex = try NSRegularExpression(pattern: regex, options: [])
             let nsString = text as NSString
             
             let results = regex.matches(in: text,
-            options: [], range: NSMakeRange(0, nsString.length))
+                                        options: [], range: NSMakeRange(0, nsString.length))
             return results.map { nsString.substring(with: $0.range)}
-        
+            
         } catch let error as NSError {
-        
+            
             print("invalid regex: \(error.localizedDescription)")
             
             return []
@@ -84,31 +84,31 @@ class NewsVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
     }
     
-    func fetchNews(){
+    func fetchSauce(){
         let loader = MBProgressHUD.showAdded(to: self.view, animated: true)
         loader.label.text = "loading..."
         
-        Alamofire.request(MyConstants().URL_FEED_NEWS).responseJSON { response in
+        Alamofire.request(MyConstants().URL_FEED_SAUCE).responseJSON { response in
             switch response.result {
                 
             case .success(let res):
-                let newsJson = JSON(res)
+                let sauceJson = JSON(res)
                 
-//                print(newsJson)
+                //                print(sauceJson)
                 
-                for i in 0 ..< newsJson.count{
-                    let link = newsJson[i]["link"].string ?? ""
-                    let title = newsJson[i]["title"]["rendered"].string?.htmlDecoded ?? ""
-                    let content = newsJson[i]["content"]["rendered"].string ?? ""
+                for i in 0 ..< sauceJson.count{
+                    let link = sauceJson[i]["link"].string ?? ""
+                    let title = sauceJson[i]["title"]["rendered"].string?.htmlDecoded ?? ""
+                    let content = sauceJson[i]["content"]["rendered"].string ?? ""
                     var url = ""
-                   
+                    
                     if let match = content.range(of: "src=\"(.*?)\"", options: .regularExpression) {
                         var src = String(content[match])
                         src = src.replacingOccurrences(of: "src=", with: "", options: NSString.CompareOptions.literal, range:nil)
                         url = src.replacingOccurrences(of: "\"", with: "", options: NSString.CompareOptions.literal, range:nil)
                     }
-
-                    self.newsArray.append(Feed(link: link, title: Title(rendered: title), imageUrl: url))
+                    
+                    self.sauceArray.append(Feed(link: link, title: Title(rendered: title), imageUrl: url))
                 }
                 
                 DispatchQueue.main.async{

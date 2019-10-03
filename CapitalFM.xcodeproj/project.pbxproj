@@ -22,6 +22,8 @@
 		04AA92572343916A0025DBC1 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA92562343916A0025DBC1 /* NewsCell.swift */; };
 		04AA9259234393910025DBC1 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA9258234393910025DBC1 /* Feed.swift */; };
 		04BAD3182338C41D00BB56DA /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BAD3172338C41D00BB56DA /* AppUtil.swift */; };
+		04C1E5192345EC270047CAE0 /* SauceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1E5182345EC270047CAE0 /* SauceVC.swift */; };
+		04C1E51B2345EC6C0047CAE0 /* LifestyleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1E51A2345EC6C0047CAE0 /* LifestyleVC.swift */; };
 		04F30A50232B6DFC002AB09E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A4F232B6DFC002AB09E /* AppDelegate.swift */; };
 		04F30A52232B6DFC002AB09E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A51232B6DFC002AB09E /* ViewController.swift */; };
 		04F30A55232B6DFC002AB09E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F30A53232B6DFC002AB09E /* Main.storyboard */; };
@@ -71,6 +73,8 @@
 		04AA92562343916A0025DBC1 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		04AA9258234393910025DBC1 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		04BAD3172338C41D00BB56DA /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
+		04C1E5182345EC270047CAE0 /* SauceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SauceVC.swift; sourceTree = "<group>"; };
+		04C1E51A2345EC6C0047CAE0 /* LifestyleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifestyleVC.swift; sourceTree = "<group>"; };
 		04F30A4C232B6DFC002AB09E /* CapitalFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapitalFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F30A4F232B6DFC002AB09E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F30A51232B6DFC002AB09E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 				0429B18D233B6DDC00047E8D /* PlayMixVC.swift */,
 				04AA925423438C260025DBC1 /* NewsVC.swift */,
 				0485857E2344CD5600C929AD /* MyWebViewVC.swift */,
+				04C1E5182345EC270047CAE0 /* SauceVC.swift */,
+				04C1E51A2345EC6C0047CAE0 /* LifestyleVC.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -509,9 +515,11 @@
 				04AA92572343916A0025DBC1 /* NewsCell.swift in Sources */,
 				049DA35F2332382E00FC0543 /* StoryCell.swift in Sources */,
 				04F30A80232B9160002AB09E /* LoginVC.swift in Sources */,
+				04C1E5192345EC270047CAE0 /* SauceVC.swift in Sources */,
 				045231C7233506DD0088286C /* Mix.swift in Sources */,
 				049E3CED2330F8780020B797 /* SocialLoginVC.swift in Sources */,
 				04F30A7E232B914B002AB09E /* LaunchVC.swift in Sources */,
+				04C1E51B2345EC6C0047CAE0 /* LifestyleVC.swift in Sources */,
 				045231C42334F8810088286C /* MixesVC.swift in Sources */,
 				04AA925523438C260025DBC1 /* NewsVC.swift in Sources */,
 			);
