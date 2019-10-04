@@ -20,6 +20,10 @@ class NewsVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     var appUtil = AppUtil()
     var selectedUrl : URL!
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

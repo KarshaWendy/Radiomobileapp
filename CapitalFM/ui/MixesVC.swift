@@ -16,11 +16,16 @@ import Kingfisher
 class MixesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collView: UICollectionView!
+    
     var player : AVPlayer!
     var mixes = [Mix]()
     var selectedMix : Mix!
     var appUtil = AppUtil()
     var isPlaying = false
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +43,7 @@ class MixesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MixCell
         cell.tvTitle.text = mixes[indexPath.row].title
-        cell.tvDate.text = DateUtil().formatDate(theDate: mixes[indexPath.row].created_at, inputFormat: "yyyy/mm/dd HH:mm:ss Z")
+        cell.tvDate.text = DateUtil().formatDate(theDate: mixes[indexPath.row].created_at, inputFormat: "yyyy/MM/dd HH:mm:ss Z")
         cell.tvDuration.text = DateUtil().formatDuration(duration: mixes[indexPath.row].duration)
         
 //        cell.btnPlay.tag = indexPath.row
@@ -196,19 +201,6 @@ class MixesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
                 self.collView.reloadData()
             }
             
-            
-//            for i in mixesJson {
-//                let downloadable = i
-//                let created_at: String
-//                let title: String
-//                let duration: String
-//                let artwork_url: String
-//                let streamable: Bool
-//                let download_url: String
-//                let uri: String
-//                let stream_url: String
-//            }
-            
             break
         case .failure(let error):
             
@@ -221,11 +213,6 @@ class MixesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
                 }
             }
             
-            
-//            DispatchQueue.main.async(dispatch_get_main_queue(), execute: {
-//                MBProgressHUD.hideHUDForView(self.view, animated: true)
-//                appUtil.showAlert("Error", userMessageTitle: MyConstants().CONN_MSG)
-//            })
             }
         }
         

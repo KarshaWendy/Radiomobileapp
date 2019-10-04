@@ -22,6 +22,7 @@
 		04AA92572343916A0025DBC1 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA92562343916A0025DBC1 /* NewsCell.swift */; };
 		04AA9259234393910025DBC1 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA9258234393910025DBC1 /* Feed.swift */; };
 		04BAD3182338C41D00BB56DA /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BAD3172338C41D00BB56DA /* AppUtil.swift */; };
+		04BDB2E1234731FC00501224 /* ListenLiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BDB2E0234731FC00501224 /* ListenLiveVC.swift */; };
 		04C1E5192345EC270047CAE0 /* SauceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1E5182345EC270047CAE0 /* SauceVC.swift */; };
 		04C1E51B2345EC6C0047CAE0 /* LifestyleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C1E51A2345EC6C0047CAE0 /* LifestyleVC.swift */; };
 		04F30A50232B6DFC002AB09E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F30A4F232B6DFC002AB09E /* AppDelegate.swift */; };
@@ -73,6 +74,7 @@
 		04AA92562343916A0025DBC1 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		04AA9258234393910025DBC1 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		04BAD3172338C41D00BB56DA /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
+		04BDB2E0234731FC00501224 /* ListenLiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenLiveVC.swift; sourceTree = "<group>"; };
 		04C1E5182345EC270047CAE0 /* SauceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SauceVC.swift; sourceTree = "<group>"; };
 		04C1E51A2345EC6C0047CAE0 /* LifestyleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifestyleVC.swift; sourceTree = "<group>"; };
 		04F30A4C232B6DFC002AB09E /* CapitalFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapitalFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +148,7 @@
 				0485857E2344CD5600C929AD /* MyWebViewVC.swift */,
 				04C1E5182345EC270047CAE0 /* SauceVC.swift */,
 				04C1E51A2345EC6C0047CAE0 /* LifestyleVC.swift */,
+				04BDB2E0234731FC00501224 /* ListenLiveVC.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				049DA36123323C4500FC0543 /* MyConstants.swift in Sources */,
 				049E3CEF233216CA0020B797 /* MyExtensions.swift in Sources */,
 				04BAD3182338C41D00BB56DA /* AppUtil.swift in Sources */,
+				04BDB2E1234731FC00501224 /* ListenLiveVC.swift in Sources */,
 				049DA3632332638000FC0543 /* SignUpVC.swift in Sources */,
 				0485857F2344CD5600C929AD /* MyWebViewVC.swift in Sources */,
 				0429B190233B73D300047E8D /* DateUtil.swift in Sources */,

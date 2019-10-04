@@ -19,6 +19,7 @@ class PlayMixVC: UIViewController {
     @IBOutlet weak var tvDuration: UILabel!
     @IBOutlet weak var btnPlay: UIButton!
     @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var bottomBar: UIView!
     
     var mix : Mix!
     var player : AVPlayer!
@@ -26,10 +27,17 @@ class PlayMixVC: UIViewController {
     var appUtil = AppUtil()
     var loader: MBProgressHUD!
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.title = "Play Music"
+        self.navigationController?.navigationBar.barTintColor = UIColor.MyTheme.primaryColor
+        
+        bottomBar.layer.cornerRadius = 16
         
         tvTitle.text = mix.title
         tvDuration.text = DateUtil().formatDuration(duration: mix.duration)
