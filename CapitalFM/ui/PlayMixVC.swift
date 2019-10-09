@@ -55,7 +55,7 @@ class PlayMixVC: UIViewController {
         if isPlaying {
             player.pause()
             isPlaying = false
-            btnPlay.setImage(UIImage(imageLiteralResourceName: "ic_play_black"), for: .normal)
+            btnPlay.setImage(UIImage(imageLiteralResourceName: "ic_play"), for: .normal)
         } else {
             loader = MBProgressHUD.showAdded(to: self.view, animated: true)
             if #available(iOS 10.0, *) {
@@ -64,7 +64,7 @@ class PlayMixVC: UIViewController {
                 player?.play()
             }
             isPlaying = true
-            btnPlay.setImage(UIImage(imageLiteralResourceName: "ic_pause_black"), for: .normal)
+            btnPlay.setImage(UIImage(imageLiteralResourceName: "ic_pause"), for: .normal)
         }
     }
     
@@ -101,7 +101,7 @@ class PlayMixVC: UIViewController {
         
         isPlaying = true
         
-        btnPlay.setImage(UIImage(imageLiteralResourceName: "ic_pause_black"), for: .normal)
+        btnPlay.setImage(UIImage(imageLiteralResourceName: "ic_pause"), for: .normal)
     }
     
     func setUpSlider(){

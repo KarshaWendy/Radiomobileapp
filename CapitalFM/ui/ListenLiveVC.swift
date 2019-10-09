@@ -54,13 +54,14 @@ class ListenLiveVC: UIViewController {
         //        player.rate = 1.0
         player.play()
         player.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil)
-        btnPlay.setBackgroundImage(UIImage(named: "icon_stop"), for: .normal)
+//        btnPlay.setBackgroundImage(UIImage(named: "icon_stop"), for: .normal)
+        btnPlay.setImage(UIImage(named: "icon_stop"), for: .normal)
         isPlaying = true
     }
     
     func stopPlayer() -> Void {
         player.pause()
-        btnPlay.setBackgroundImage(UIImage(named: "icon_play"), for: .normal)
+        btnPlay.setImage(UIImage(named: "icon_play"), for: .normal)
         isPlaying = false
     }
     
