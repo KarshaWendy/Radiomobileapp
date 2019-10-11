@@ -38,7 +38,25 @@ class DateUtil {
             //formatter.timeZone = NSTimeZone(abbreviation: "GMT+3")
             return formatter.string(from: date)
         } else {
-            return "Unknown Date"
+            return ""
         }
     }
+    
+    func formatDate(theDate: String, inputFormat: String, outputFormat: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = inputFormat
+        if let date = formatter.date(from: theDate){
+            formatter.dateFormat = outputFormat
+            return formatter.string(from: date)
+        } else {
+            return ""
+        }
+    }
+    
+    func dateToString(theDate: Date, outputFormat: String)-> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = outputFormat
+        return formatter.string(from: theDate)
+    }
+    
 }

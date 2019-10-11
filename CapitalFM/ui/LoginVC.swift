@@ -137,6 +137,8 @@ class LoginVC: UIViewController, LoginButtonDelegate  {
         tfName.clipsToBounds = true
         tfConfirmPass.layer.cornerRadius = tfConfirmPass.frame.size.height/2
         tfConfirmPass.clipsToBounds = true
+        btnFBLogin.layer.cornerRadius = btnFBLogin.frame.size.height/2
+        btnFBLogin.clipsToBounds = true
         
         btnLogin.layer.cornerRadius = btnLogin.frame.size.height/2
         btnRegister.layer.cornerRadius = btnRegister.frame.size.height/2
@@ -144,6 +146,12 @@ class LoginVC: UIViewController, LoginButtonDelegate  {
         btnRegister.backgroundColor = UIColor.MyTheme.primaryColor
         btnSignIn.setTitleColor(UIColor.MyTheme.primaryColor, for: .normal)
         ViewRegister.isHidden = true
+        
+        for const in btnFBLogin.constraints{
+            if const.firstAttribute == NSLayoutConstraint.Attribute.height && const.constant == 28{
+                btnFBLogin.removeConstraint(const)
+            }
+        }
     }
 
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {

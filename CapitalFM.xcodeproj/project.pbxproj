@@ -140,19 +140,19 @@
 		0429B18C233B6B7C00047E8D /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				04F30A7D232B914A002AB09E /* LaunchVC.swift */,
-				04F30A7F232B9160002AB09E /* LoginVC.swift */,
-				04F30A81232B9198002AB09E /* SignUpOptionsVC.swift */,
 				04F30A83232B91B5002AB09E /* HomeVC.swift */,
-				049E3CEC2330F8780020B797 /* SocialLoginVC.swift */,
-				049DA3622332638000FC0543 /* SignUpVC.swift */,
-				045231C32334F8800088286C /* MixesVC.swift */,
-				0429B18D233B6DDC00047E8D /* PlayMixVC.swift */,
-				04AA925423438C260025DBC1 /* NewsVC.swift */,
-				0485857E2344CD5600C929AD /* MyWebViewVC.swift */,
-				04C1E5182345EC270047CAE0 /* SauceVC.swift */,
+				04F30A7D232B914A002AB09E /* LaunchVC.swift */,
 				04C1E51A2345EC6C0047CAE0 /* LifestyleVC.swift */,
 				04BDB2E0234731FC00501224 /* ListenLiveVC.swift */,
+				04F30A7F232B9160002AB09E /* LoginVC.swift */,
+				045231C32334F8800088286C /* MixesVC.swift */,
+				0485857E2344CD5600C929AD /* MyWebViewVC.swift */,
+				04AA925423438C260025DBC1 /* NewsVC.swift */,
+				0429B18D233B6DDC00047E8D /* PlayMixVC.swift */,
+				04C1E5182345EC270047CAE0 /* SauceVC.swift */,
+				04F30A81232B9198002AB09E /* SignUpOptionsVC.swift */,
+				049DA3622332638000FC0543 /* SignUpVC.swift */,
+				049E3CEC2330F8780020B797 /* SocialLoginVC.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -169,10 +169,10 @@
 		049E3CF0233216D30020B797 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				049E3CEE233216CA0020B797 /* MyExtensions.swift */,
-				049DA36023323C4500FC0543 /* MyConstants.swift */,
 				04BAD3172338C41D00BB56DA /* AppUtil.swift */,
 				0429B18F233B73D300047E8D /* DateUtil.swift */,
+				049DA36023323C4500FC0543 /* MyConstants.swift */,
+				049E3CEE233216CA0020B797 /* MyExtensions.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
