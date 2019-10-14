@@ -76,8 +76,17 @@ class PlayMixVC: UIViewController {
 
     func setUpPlayer(){
         let streamUrl = mix.stream_url + "?client_id=" + MyConstants().SOUNDCLOUD_CLIENT_ID
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.playback)
+        } catch {
+            AppUtil().showAlert(title: "", msg: "playback error")
+        }
+        
         player = AVPlayer(url: URL(string: streamUrl)!)
         player.volume = 1.0
+        
         if #available(iOS 10.0, *) {
             player?.playImmediately(atRate: 1.0)
         } else {

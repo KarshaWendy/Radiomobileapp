@@ -36,28 +36,26 @@
 				<string>twitterkit-hTpkPVU4pThkM0</string>
 			</array>
 		</dict>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb787971604951683</string>
-            </array>
-        </dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb787971604951683</string>
+			</array>
+		</dict>
 	</array>
-    <key>FacebookAppID</key>
-    <string>787971604951683</string>
-    <key>FacebookDisplayName</key>
-    <string>TestApp</string>
-    
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-share-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
-    
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>787971604951683</string>
+	<key>FacebookDisplayName</key>
+	<string>TestApp</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -65,6 +63,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

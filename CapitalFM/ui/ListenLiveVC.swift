@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import AVFoundation
 import MBProgressHUD
 
 class ListenLiveVC: UIViewController {
@@ -15,20 +16,25 @@ class ListenLiveVC: UIViewController {
     @IBOutlet weak var ivLive: UIImageView!
     @IBOutlet weak var btnPlay: UIButton!
     @IBOutlet weak var ivGif: UIImageView!
+    @IBOutlet weak var tvShow: UILabel!
+    @IBOutlet weak var tvPresenter: UILabel!
     
     var isPlaying: Bool!
     var player: AVPlayer!
     var loader: MBProgressHUD!
     var dateUtil = DateUtil()
+    var cons = MyConstants()
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        setShowImage()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setShowImage()
         
         setUpPlayer()
     }
@@ -45,6 +51,13 @@ class ListenLiveVC: UIViewController {
     
     func setUpPlayer(){
         isPlaying = false
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.playback)
+        } catch {
+            AppUtil().showAlert(title: "", msg: "playback error")
+        }
         player = AVPlayer(url: URL(string: MyConstants().URL_LIVE_STREAM)!)
         player.volume = 1.0
     }
@@ -81,6 +94,7 @@ class ListenLiveVC: UIViewController {
         var showName = ""
         var presenterName = ""
         var imageName = ""
+        var defaultImg = "live12"
         
         switch day {
         case "Mon":
@@ -105,120 +119,227 @@ class ListenLiveVC: UIViewController {
         case "weekday":
             switch timeInt {
             case 0..<100:
+                presenterName = "Laid back Dj Mixes"
+                showName = cons.HEARTBEAT
+                imageName = defaultImg
+            case 500..<600:
+                presenterName = "Dj Tony"
+                showName = cons.QUIET_STORM
+                imageName = "live1"
+            case 600..<1000:
+                presenterName = "Amina & Fareed"
+                showName = cons.CAPITAL_MORNING
+                imageName = "live2"
+            case 1000..<1400:
+                presenterName = "Anne & Miano"
+                showName = cons.FUSE
+                imageName = "live3"
+            case 1400..<1500:
+                presenterName = "One hour of Amazing Dj mixes"
+                showName = cons.RADIO_ACTIVE
+                imageName = "live6"
+            case 1500..<1900:
+                presenterName = "Joey & Martin"
+                showName = cons.JAM
+                imageName = "live4"
+            case 1900..<2200:
+                presenterName = "Mandi & Neville"
+                showName = cons.HITS
+                imageName = "live5"
+            case 2200..<2400:
+                presenterName = "Laid back Dj Mixes"
+                imageName = cons.HEARTBEAT
+                imageName = "live7"
+            default:
                 presenterName = ""
                 showName = ""
-                imageName = ""
-            case 500..<600:
-                imageName = ""
-            case 600..<1000:
-                imageName = ""
-            case 1000..<1400:
-                imageName = ""
-            case 1400..<1500:
-                imageName = ""
-            case 1500..<1900:
-                imageName = ""
-            case 1900..<2200:
-                imageName = ""
-            case 2200..<2400:
-                imageName = ""
-            default:
-                imageName = ""
+                imageName = defaultImg
             }
         case "thu":
             switch timeInt {
             case 0..<100:
+                presenterName = "Laid back Dj Mixes"
+                showName = cons.HEARTBEAT
                 imageName = ""
             case 500..<600:
-                imageName = ""
+                presenterName = "Dj Tony"
+                showName = cons.QUIET_STORM
+                imageName = "live1"
             case 600..<1000:
-                imageName = ""
+                presenterName = "Amina & Fareed"
+                showName = cons.CAPITAL_MORNING
+                imageName = "live2"
             case 1000..<1400:
-                imageName = ""
+                presenterName = "Anne & Miano"
+                showName = cons.FUSE
+                imageName = "live3"
             case 1400..<1500:
-                imageName = ""
+                presenterName = "One hour of Amazing Dj mixes"
+                showName = cons.RADIO_ACTIVE
+                imageName = "live6"
             case 1500..<1900:
-                imageName = ""
+                presenterName = "Joey & Martin"
+                showName = cons.JAM
+                imageName = "live4"
             case 1900..<2200:
-                imageName = ""
+                presenterName = ""
+                showName = cons.HITS
+                imageName = defaultImg
             case 2200..<2300:
-                imageName = ""
+                presenterName = ""
+                showName = cons.TED_TALK
+                imageName = "live19"
             case 2300..<2400:
-                imageName = ""
+                presenterName = "Laid back Dj Mixes"
+                showName = cons.HEARTBEAT
+                imageName = defaultImg
             default:
-                imageName = ""
+                presenterName = ""
+                showName = ""
+                imageName = defaultImg
             }
         case "fri":
             switch timeInt {
             case 0..<100:
-                imageName = ""
+                presenterName = "Laid back Dj Mixes"
+                showName = cons.HEARTBEAT
+                imageName = defaultImg
             case 500..<600:
-                imageName = ""
+                presenterName = "Dj Tony"
+                showName = cons.QUIET_STORM
+                imageName = "live1"
             case 600..<1000:
-                imageName = ""
+                presenterName = "Amina & Fareed"
+                showName = cons.CAPITAL_MORNING
+                imageName = "live2"
             case 1000..<1400:
-                imageName = ""
+                presenterName = "Anne & Miano"
+                showName = cons.FUSE
+                imageName = "live3"
             case 1400..<1500:
-                imageName = ""
+                presenterName = "One hour of Amazing Dj mixes"
+                showName = cons.RADIO_ACTIVE
+                imageName = "live6"
             case 1500..<1900:
-                imageName = ""
+                presenterName = "Joey & Martin"
+                showName = cons.JAM
+                imageName = "live4"
             case 1900..<2100:
-                imageName = ""
+                presenterName = "Mandi & Neville"
+                showName = cons.HEAT
+                imageName = defaultImg
             case 2100..<2300:
-                imageName = ""
+                presenterName = ""
+                showName = cons.DANCE_REPUBLIC
+                imageName = defaultImg
             case 2300..<2400:
-                imageName = ""
+                presenterName = ""
+                showName = cons.CLUB_CAPITAL
+                imageName = defaultImg
             default:
-                imageName = ""
+                presenterName = ""
+                showName = ""
+                imageName = defaultImg
             }
         case "sat":
             switch timeInt {
             case 0..<200:
-                imageName = ""
+                presenterName = ""
+                showName = cons.CLUB_CAPITAL
+                imageName = defaultImg
             case 500..<700:
-                imageName = ""
+                presenterName = "Dj Tony"
+                showName = cons.INFUSED
+                imageName = defaultImg
             case 700..<1000:
-                imageName = ""
+                presenterName = "Tracy, Djs Tumz & Lithium"
+                showName = cons.SATURDAY_BREAKFAST
+                imageName = "live8"
             case 1000..<1400:
-                imageName = ""
+                presenterName = "Rick Dees"
+                showName = cons.RICK_DEES
+                imageName = "live9"
             case 1400..<1700:
-                imageName = ""
+                presenterName = "Solo, Wokabi & Alex"
+                showName = cons.MUSIC_SPORT
+                imageName = "live10"
             case 1700..<1900:
-                imageName = ""
+                presenterName = "Dj Slick"
+                showName = cons.CYPHER
+                imageName = "live11"
             case 1900..<2100:
-                imageName = ""
+                presenterName = "Kui Kabala"
+                showName = cons.WORLD_GROOVE
+                imageName = "live12"
             case 2100..<2300:
-                imageName = ""
+                presenterName = "Dj Adrian"
+                showName = cons.WHEELZ_STEEL
+                imageName = "live13"
             case 2300..<2400:
-                imageName = ""
+                presenterName = ""
+                showName = cons.CLUB_CAPITAL
+                imageName = defaultImg
             default:
-                imageName = ""
+                presenterName = ""
+                showName = ""
+                imageName = defaultImg
             }
         case "sun":
             switch timeInt {
+            case 0..<200:
+                presenterName = ""
+                showName = cons.CLUB_CAPITAL
+                imageName = defaultImg
             case 600..<800:
-                imageName = ""
+                presenterName = ""
+                showName = cons.LEGENDS
+                imageName = defaultImg
             case 800..<900:
-                imageName = ""
+                presenterName = ""
+                showName = cons.COUNTRY_ROAD
+                imageName = defaultImg
             case 900..<1100:
-                imageName = ""
+                presenterName = "Chao"
+                showName = cons.LOUNGE
+                imageName = "live14"
             case 1100..<1300:
-                imageName = ""
+                presenterName = "Wokabi & friends"
+                showName = cons.FOOTBALL_SUNDAY
+                imageName = "live10"
             case 1300..<1500:
-                imageName = ""
+                presenterName = "Dj Mo"
+                showName = cons.SOUND
+                imageName = "live15"
             case 1500..<1700:
-                imageName = ""
+                presenterName = "Dj Adrian"
+                showName = cons.SOUL_GROOVE
+                imageName = "live13"
             case 1700..<1900:
-                imageName = ""
+                presenterName = "Ras Luigi"
+                showName = cons.ONE_LOVE
+                imageName = "live17"
             case 1900..<2200:
-                imageName = ""
+                presenterName = "Kaima & Jacob Asiyo"
+                showName = cons.CAPITAL_JAZZ_CLUB
+                imageName = "live16"
             case 2200..<2300:
-                imageName = ""
+                presenterName = ""
+                showName = cons.TED_TALK_RPT
+                imageName = "live18"
             default:
-                imageName = ""
+                presenterName = ""
+                showName = ""
+                imageName = defaultImg
             }
         default:
-            imageName = ""
+            presenterName = ""
+            showName = ""
+            imageName = defaultImg
         }
+        
+        ivLive.image = UIImage(named: imageName)
+        tvShow.text = showName
+        tvPresenter.text = presenterName
     }
+    
 }
