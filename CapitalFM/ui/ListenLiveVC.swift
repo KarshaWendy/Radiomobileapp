@@ -24,6 +24,8 @@ class ListenLiveVC: UIViewController {
     var loader: MBProgressHUD!
     var dateUtil = DateUtil()
     var cons = MyConstants()
+    let audioSession = AVAudioSession.sharedInstance()
+    let notification = NotificationCenter.default
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
@@ -36,7 +38,9 @@ class ListenLiveVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        notification.addObserver(self, selector: #selector(self.cancelBgPlay), name: Notification.Name("StopLive"), object: nil)
         setUpPlayer()
+        
     }
     
     @IBAction func btnPlay(_ sender: Any) {
@@ -52,12 +56,14 @@ class ListenLiveVC: UIViewController {
     func setUpPlayer(){
         isPlaying = false
         
-        let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(.playback)
         } catch {
             AppUtil().showAlert(title: "", msg: "playback error")
         }
+        
+        notification.post(name: Notification.Name("StopMix"), object: nil)
+        
         player = AVPlayer(url: URL(string: MyConstants().URL_LIVE_STREAM)!)
         player.volume = 1.0
     }
@@ -66,6 +72,9 @@ class ListenLiveVC: UIViewController {
         loader = MBProgressHUD.showAdded(to: self.view, animated: true)
         
         //        player.rate = 1.0
+    
+        notification.post(name: Notification.Name("StopMix"), object: nil)
+        
         player.play()
         player.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil)
 //        btnPlay.setBackgroundImage(UIImage(named: "icon_stop"), for: .normal)
@@ -77,6 +86,12 @@ class ListenLiveVC: UIViewController {
         player.pause()
         btnPlay.setImage(UIImage(named: "icon_play"), for: .normal)
         isPlaying = false
+    }
+    
+    @objc func cancelBgPlay(){
+        if player != nil {
+            stopPlayer()
+        }
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -94,7 +109,7 @@ class ListenLiveVC: UIViewController {
         var showName = ""
         var presenterName = ""
         var imageName = ""
-        var defaultImg = "live12"
+        let defaultImg = "live12"
         
         switch day {
         case "Mon":

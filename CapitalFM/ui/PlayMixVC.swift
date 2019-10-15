@@ -23,9 +23,13 @@ class PlayMixVC: UIViewController {
     
     var mix : Mix!
     var player : AVPlayer!
+    var timeObserverToken : Any!
     var isPlaying = false
     var appUtil = AppUtil()
     var loader: MBProgressHUD!
+    let notification = NotificationCenter.default
+    let KEY_OBSERVER = "currentItem.loadedTimeRanges"
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
@@ -47,29 +51,68 @@ class PlayMixVC: UIViewController {
             iv.kf.setImage(with: url)
         }
         loader = MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        notification.addObserver(self, selector: #selector(self.cancelBgPlay), name: Notification.Name("StopMix"), object: nil)
         setUpPlayer()
         setUpSlider()
     }
     
     @IBAction func btnPlay(_ sender: Any) {
         if isPlaying {
-            player.pause()
-            isPlaying = false
-            btnPlay.setImage(UIImage(imageLiteralResourceName: "ic_play"), for: .normal)
+            pausePlayer()
         } else {
-            loader = MBProgressHUD.showAdded(to: self.view, animated: true)
-            if #available(iOS 10.0, *) {
-                player?.playImmediately(atRate: 1.0)
-            } else {
-                player?.play()
-            }
-            isPlaying = true
-            btnPlay.setImage(UIImage(imageLiteralResourceName: "ic_pause"), for: .normal)
+            startPlayer()
         }
     }
     
+    @IBAction func btnStop(_ sender: Any) {
+        stopPlayer()
+    }
+    
+    @IBAction func btnNext(_ sender: Any) {
+    }
+    
+    @IBAction func btnPrevious(_ sender: Any) {
+    }
+    
+    func startPlayer(){
+        notification.post(name: Notification.Name("StopLive"), object: nil)
+        loader = MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        if player == nil {
+            setUpPlayer()
+            return
+        }
+        
+        if #available(iOS 10.0, *) {
+            player?.playImmediately(atRate: 1.0)
+        } else {
+            player?.play()
+        }
+        isPlaying = true
+        btnPlay.setImage(UIImage(imageLiteralResourceName: "ic_pause"), for: .normal)
+    }
+    
+    func pausePlayer() -> Void {
+        player.pause()
+        isPlaying = false
+        btnPlay.setImage(UIImage(imageLiteralResourceName: "ic_play"), for: .normal)
+    }
+    
+    func stopPlayer() -> Void {
+        player.removeObserver(self, forKeyPath: KEY_OBSERVER)
+        player.removeTimeObserver(timeObserverToken!)
+        
+        self.tvCount.text = "00:00"
+        self.slider.value = 0
+        
+        player = nil
+        isPlaying = false
+        btnPlay.setImage(UIImage(imageLiteralResourceName: "ic_play"), for: .normal)
+    }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "currentItem.loadedTimeRanges"{
+        if keyPath == KEY_OBSERVER {
             loader.hide(animated: true)
         }
     }
@@ -92,9 +135,10 @@ class PlayMixVC: UIViewController {
         } else {
             player?.play()
         }
-        player.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil)
+        
+        player.addObserver(self, forKeyPath: KEY_OBSERVER, options: .new, context: nil)
         let interval = CMTime(value: 1, timescale: 2)
-        player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: {(progressTime) in
+        timeObserverToken = player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: {(progressTime) in
             let seconds = CMTimeGetSeconds(progressTime)
             let secondsString = String(format: "%02d", Int(seconds) % 60)
             let minsString = String(format: "%02d", Int(seconds) / 60)
@@ -108,9 +152,16 @@ class PlayMixVC: UIViewController {
             }
         })
         
+        
         isPlaying = true
         
         btnPlay.setImage(UIImage(imageLiteralResourceName: "ic_pause"), for: .normal)
+    }
+    
+    @objc func cancelBgPlay(){
+        if player != nil {
+            stopPlayer()
+        }
     }
     
     func setUpSlider(){

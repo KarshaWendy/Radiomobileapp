@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 import GoogleSignIn
 import FacebookCore
 //import FBSDKCoreKit
@@ -16,6 +17,7 @@ import FacebookCore
 class AppDelegate: UIResponder, UIApplicationDelegate{
     
     var window: UIWindow?
+    var audioPlayer: AVPlayer? = nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         

@@ -891,19 +891,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wnh-nP-9kl">
-                                <rect key="frame" x="16" y="365.5" width="31.5" height="13.5"/>
+                                <rect key="frame" x="16" y="355.5" width="31.5" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODm-Oj-Wma">
-                                <rect key="frame" x="272.5" y="365.5" width="31.5" height="13.5"/>
+                                <rect key="frame" x="272.5" y="355.5" width="31.5" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qyh-iI-Cdv">
-                                <rect key="frame" x="53.5" y="357.5" width="213" height="31"/>
+                                <rect key="frame" x="53.5" y="347.5" width="213" height="31"/>
                                 <color key="minimumTrackTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </slider>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GhT-vO-DrK">
@@ -928,6 +928,7 @@
                                         </constraints>
                                         <state key="normal" image="ic_arrow_right_white"/>
                                         <connections>
+                                            <action selector="btnNext:" destination="xbI-3f-7SL" eventType="touchUpInside" id="fDW-3u-ezq"/>
                                             <action selector="btnPlay:" destination="xbI-3f-7SL" eventType="touchUpInside" id="9gO-qY-xOs"/>
                                         </connections>
                                     </button>
@@ -951,6 +952,7 @@
                                         <state key="normal" image="baseline_keyboard_arrow_left_white_48dp"/>
                                         <connections>
                                             <action selector="btnPlay:" destination="xbI-3f-7SL" eventType="touchUpInside" id="0dn-G3-m58"/>
+                                            <action selector="btnPrevious:" destination="xbI-3f-7SL" eventType="touchUpInside" id="kSL-xk-0jA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYu-If-yVc">
@@ -962,6 +964,7 @@
                                         <state key="normal" image="baseline_stop_white_48dp"/>
                                         <connections>
                                             <action selector="btnPlay:" destination="xbI-3f-7SL" eventType="touchUpInside" id="ryL-Vh-TXs"/>
+                                            <action selector="btnStop:" destination="xbI-3f-7SL" eventType="touchUpInside" id="iYz-cC-UZe"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -986,7 +989,7 @@
                         <constraints>
                             <constraint firstItem="66k-cU-0V9" firstAttribute="top" secondItem="70L-JV-XeV" secondAttribute="bottom" constant="16" id="4qR-lY-mmd"/>
                             <constraint firstItem="FOM-fL-5bW" firstAttribute="trailing" secondItem="66k-cU-0V9" secondAttribute="trailing" constant="20" id="87t-pI-ETr"/>
-                            <constraint firstItem="ODm-Oj-Wma" firstAttribute="top" secondItem="66k-cU-0V9" secondAttribute="bottom" constant="45" id="9YG-4Y-l6D"/>
+                            <constraint firstItem="ODm-Oj-Wma" firstAttribute="top" secondItem="66k-cU-0V9" secondAttribute="bottom" constant="35" id="9YG-4Y-l6D"/>
                             <constraint firstItem="FOM-fL-5bW" firstAttribute="trailing" secondItem="GhT-vO-DrK" secondAttribute="trailing" id="Blp-mU-Ccy"/>
                             <constraint firstItem="70L-JV-XeV" firstAttribute="top" secondItem="FOM-fL-5bW" secondAttribute="top" constant="20" id="H3X-K8-NWa"/>
                             <constraint firstItem="Wnh-nP-9kl" firstAttribute="leading" secondItem="FOM-fL-5bW" secondAttribute="leading" constant="16" id="KGB-j9-HTV"/>
@@ -994,7 +997,7 @@
                             <constraint firstItem="FOM-fL-5bW" firstAttribute="trailing" secondItem="ODm-Oj-Wma" secondAttribute="trailing" constant="16" id="PGD-fc-7eo"/>
                             <constraint firstItem="70L-JV-XeV" firstAttribute="leading" secondItem="FOM-fL-5bW" secondAttribute="leading" constant="16" id="Ryf-hZ-Gsw"/>
                             <constraint firstItem="FOM-fL-5bW" firstAttribute="bottom" secondItem="GhT-vO-DrK" secondAttribute="bottom" id="SqY-VK-ypD"/>
-                            <constraint firstItem="Wnh-nP-9kl" firstAttribute="top" secondItem="66k-cU-0V9" secondAttribute="bottom" constant="45" id="TIo-RK-dbO"/>
+                            <constraint firstItem="Wnh-nP-9kl" firstAttribute="top" secondItem="66k-cU-0V9" secondAttribute="bottom" constant="35" id="TIo-RK-dbO"/>
                             <constraint firstItem="66k-cU-0V9" firstAttribute="leading" secondItem="FOM-fL-5bW" secondAttribute="leading" constant="20" id="U6b-cA-7nz"/>
                             <constraint firstItem="Qyh-iI-Cdv" firstAttribute="centerY" secondItem="Wnh-nP-9kl" secondAttribute="centerY" id="VVB-UN-0DS"/>
                             <constraint firstItem="FOM-fL-5bW" firstAttribute="trailing" secondItem="70L-JV-XeV" secondAttribute="trailing" constant="16" id="hvA-D7-Jpj"/>
@@ -1361,7 +1364,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g1p-Y6-Et6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uru-pv-kYA">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1379,7 +1382,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t6S-g2-ePb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7X0-xl-j7W">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1558,7 +1561,7 @@
                     <tabBarItem key="tabBarItem" title="" image="icon_live" id="RaY-kZ-hpU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FqZ-Ep-qNM">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1615,7 +1618,7 @@
                     <tabBarItem key="tabBarItem" title="" image="icon_sauce" id="4I2-Jr-wr3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iGb-EN-FIQ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
