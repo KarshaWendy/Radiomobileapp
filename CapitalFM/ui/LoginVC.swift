@@ -111,8 +111,13 @@ class LoginVC: UIViewController, LoginButtonDelegate  {
     func login(){
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        let params = ["": ""]
-        let headers = ["": ""]
+        let deviceId = UIDevice.current.identifierForVendor!.uuidString
+        
+        let params = ["email": email,
+                      "phone_identifier": deviceId,
+                      "password": password,
+                      "phone_type":"iphone",
+                      ]
         //        Alamofire.request(MyConstants().SOUNDCLOUD_CLIENT_ID, method: .post, parameters: params, encoding: nil, headers: headers)
     }
 

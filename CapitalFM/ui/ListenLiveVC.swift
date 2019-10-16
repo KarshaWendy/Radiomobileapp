@@ -9,6 +9,7 @@
 import UIKit
 import AVKit
 import AVFoundation
+import Alamofire
 import MBProgressHUD
 
 class ListenLiveVC: UIViewController {
@@ -40,7 +41,6 @@ class ListenLiveVC: UIViewController {
         
         notification.addObserver(self, selector: #selector(self.cancelBgPlay), name: Notification.Name("StopLive"), object: nil)
         setUpPlayer()
-        
     }
     
     @IBAction func btnPlay(_ sender: Any) {
@@ -98,6 +98,13 @@ class ListenLiveVC: UIViewController {
         if keyPath == "currentItem.loadedTimeRanges"{
             loader.hide(animated: true)
         }
+    }
+    
+    func sendListenerData(){
+        let params = ["": ""]
+        let headers: HTTPHeaders = ["": ""]
+        
+        Alamofire.request(cons.registerSocialUrl(), method: .post, parameters: params, encoding: nil, headers: headers)
     }
     
     func setShowImage(){

@@ -20,6 +20,10 @@ class MyConstants {
     let SOUNDCLOUD_CLIENT_SECRET = "50d544ec31928cf35e1a1567e06deac4"
     let URL_FETCH_MIXES = "https://api.soundcloud.com/users/27162382/tracks?client_id=62d04bb9b214abbc31cae1334a28e8ed"
     
+    //app apis
+    let BASE_URL = "https://data.smartapplicationsgroup.com/"
+    let KEY_AUTH = "Authorization:Bearer"
+    
     //Google
     let GOOGLE_CLIENT_ID = "828926963122-piau0tthhriltebacd0f41176c21dr77.apps.googleusercontent.com"
     
@@ -57,4 +61,23 @@ class MyConstants {
     let ONE_LOVE = "One Love"
     let CAPITAL_JAZZ_CLUB = "Capital Jazz Club"
     
+    func loginUrl() -> String {
+        return BASE_URL + "login"
+    }
+    
+    func registerUrl() -> String {
+        return BASE_URL + "register"
+    }
+    
+    func registerSocialUrl() -> String {
+        return BASE_URL + "register_social"
+    }
+    
+    func startListeningUrl() -> String {
+        return BASE_URL + "start_listening"
+    }
+    
+    func stopListeningUrl() -> String {
+        return BASE_URL + "stop_listening"
+    }
 }
