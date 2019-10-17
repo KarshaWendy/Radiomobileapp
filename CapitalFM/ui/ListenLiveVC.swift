@@ -10,6 +10,7 @@ import UIKit
 import AVKit
 import AVFoundation
 import Alamofire
+import SwiftyJSON
 import MBProgressHUD
 
 class ListenLiveVC: UIViewController {
@@ -100,11 +101,38 @@ class ListenLiveVC: UIViewController {
         }
     }
     
-    func sendListenerData(){
-        let params = ["": ""]
+    func sendStartedListening(){
+        let params = ["email": "",
+                      "phone_identifier": "",
+                      "start_time": "",
+                      "lat": "",
+                      "lng": ""]
+        
         let headers: HTTPHeaders = ["": ""]
         
-        Alamofire.request(cons.registerSocialUrl(), method: .post, parameters: params, encoding: nil, headers: headers)
+        Alamofire.request(cons.startListeningUrl(), method: .post, parameters: params, encoding: [] as! ParameterEncoding, headers: headers).responseJSON(completionHandler: {response in
+            switch response.result {
+                
+            case .success(let res):
+                let resJson = JSON(res)
+                //                let status = resJson["status"].int ?? 0
+                break
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
+    }
+    
+    func sendStoppedListening(){
+        let params = ["listener_token": "",
+                      "end_time": ""]
+        
+        let headers: HTTPHeaders = ["": ""]
+        
+        Alamofire.request(cons.stopListeningUrl(), method: .post, parameters: params, encoding: [] as! ParameterEncoding, headers: headers).responseJSON(completionHandler: {response in
+            
+            print(response)
+        })
     }
     
     func setShowImage(){

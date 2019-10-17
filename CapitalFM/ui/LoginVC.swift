@@ -9,6 +9,7 @@
 import UIKit
 import MBProgressHUD
 import Alamofire
+import SwiftyJSON
 import FacebookLogin
 import FBSDKCoreKit
 
@@ -30,10 +31,13 @@ class LoginVC: UIViewController, LoginButtonDelegate  {
     @IBOutlet weak var btnFBLogin: FBLoginButton!
     
     var appUtil = AppUtil()
+    var sess = SessionManager()
     var email = ""
     var password = ""
     var name = ""
     var confirmPass = ""
+    var socialType = ""
+    let deviceId = UIDevice.current.identifierForVendor!.uuidString
     
     let fbText = NSAttributedString(string: "LOGIN WITH FACEBOOK")
     
@@ -109,24 +113,125 @@ class LoginVC: UIViewController, LoginButtonDelegate  {
     }
     
     func login(){
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-        
-        let deviceId = UIDevice.current.identifierForVendor!.uuidString
+        let loader = MBProgressHUD.showAdded(to: self.view, animated: true)
         
         let params = ["email": email,
                       "phone_identifier": deviceId,
                       "password": password,
-                      "phone_type":"iphone",
-                      ]
-        //        Alamofire.request(MyConstants().SOUNDCLOUD_CLIENT_ID, method: .post, parameters: params, encoding: nil, headers: headers)
+                      "phone_type":"iphone"]
+        
+        Alamofire.request(MyConstants().loginUrl(), method: .post, parameters: params, encoding: [] as! ParameterEncoding, headers: params).responseJSON(completionHandler: {(response) in
+            switch response.result {
+            
+            case .success(let res):
+                let resJson = JSON(res)
+            
+                DispatchQueue.main.async{
+                    loader.hide(animated: true)
+                    
+                    let status = resJson["status"].intValue
+                    var msg = MyConstants().ERR_MSG
+                    
+                    if status == 1 {
+                        self.sess.setApiToken(token: resJson["status"].stringValue)
+                    } else {
+                        msg = resJson["message"].stringValue
+                        self.appUtil.showAlert(title: "Error", msg: msg)
+                    }
+                }
+            case .failure(let error):
+                DispatchQueue.main.async{
+                    loader.hide(animated: true)
+                    if error.localizedDescription.contains("The Internet connection appears to be offline"){
+                        self.appUtil.showAlert(title: "Error", msg: MyConstants().CONN_MSG)
+                    } else {
+                        self.appUtil.showAlert(title: "Error", msg: MyConstants().ERR_MSG)
+                    }
+                }
+            }
+            
+            })
     }
 
     func register(){
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        let loader = MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        let params = ["": ""]
-        let headers = ["": ""]
-        //        Alamofire.request(MyConstants().SOUNDCLOUD_CLIENT_ID, method: .post, parameters: params, encoding: nil, headers: headers)
+        let params = ["name": name,
+                      "email": email,
+                      "phone_identifier": deviceId,
+                      "password": password,
+                      "phone_type": "iphone"]
+        
+        Alamofire.request(MyConstants().registerUrl(), method: .post, parameters: params, encoding: [] as! ParameterEncoding, headers: params).responseJSON(completionHandler: {(response) in
+            switch response.result {
+            case .success(let res):
+                let resJson = JSON(res)
+                
+                DispatchQueue.main.async{
+                    loader.hide(animated: true)
+                    
+                    let status = resJson["status"].intValue
+                    var msg = MyConstants().ERR_MSG
+                    
+                    if status == 1 {
+                        self.sess.setApiToken(token: resJson["status"].stringValue)
+                    } else {
+                        msg = resJson["message"].stringValue
+                        self.appUtil.showAlert(title: "Error", msg: msg)
+                    }
+                }
+            case .failure(let error):
+                DispatchQueue.main.async{
+                    loader.hide(animated: true)
+                    if error.localizedDescription.contains("The Internet connection appears to be offline"){
+                        self.appUtil.showAlert(title: "Error", msg: MyConstants().CONN_MSG)
+                    } else {
+                        self.appUtil.showAlert(title: "Error", msg: MyConstants().ERR_MSG)
+                    }
+                }
+            }
+            
+        })
+    }
+    
+    func registerSocial(){
+        let loader = MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        let params = ["email": email,
+                      "phone_type": "iphone",
+                      "phone_identifier": deviceId,
+                      "social_token": sess.getSocialToken(),
+                      "social_type": sess.getSocialType()]
+        
+        Alamofire.request(MyConstants().registerSocialUrl(), method: .post, parameters: params, encoding: [] as! ParameterEncoding, headers: params).responseJSON(completionHandler: {(response) in
+            switch response.result {
+            case .success(let res):
+                let resJson = JSON(res)
+                
+                DispatchQueue.main.async{
+                    loader.hide(animated: true)
+                    
+                    let status = resJson["status"].intValue
+                    var msg = MyConstants().ERR_MSG
+                    
+                    if status == 1 {
+                        self.sess.setApiToken(token: resJson["status"].stringValue)
+                    } else {
+                        msg = resJson["message"].stringValue
+                        self.appUtil.showAlert(title: "Error", msg: msg)
+                    }
+                }
+            case .failure(let error):
+                DispatchQueue.main.async{
+                    loader.hide(animated: true)
+                    if error.localizedDescription.contains("The Internet connection appears to be offline"){
+                        self.appUtil.showAlert(title: "Error", msg: MyConstants().CONN_MSG)
+                    } else {
+                        self.appUtil.showAlert(title: "Error", msg: MyConstants().ERR_MSG)
+                    }
+                }
+            }
+        })
     }
     
     func setUpCustomUI(){
