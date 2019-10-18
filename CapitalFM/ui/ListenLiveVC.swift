@@ -12,8 +12,9 @@ import AVFoundation
 import Alamofire
 import SwiftyJSON
 import MBProgressHUD
+import CoreLocation
 
-class ListenLiveVC: UIViewController {
+class ListenLiveVC: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var ivLive: UIImageView!
     @IBOutlet weak var btnPlay: UIButton!
@@ -25,9 +26,14 @@ class ListenLiveVC: UIViewController {
     var player: AVPlayer!
     var loader: MBProgressHUD!
     var dateUtil = DateUtil()
+    let appUtil = AppUtil()
     var cons = MyConstants()
     let audioSession = AVAudioSession.sharedInstance()
     let notification = NotificationCenter.default
+    let locationManager = CLLocationManager()
+    let deviceId = UIDevice.current.identifierForVendor!.uuidString
+    var lat = ""
+    var lng = ""
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
@@ -42,6 +48,57 @@ class ListenLiveVC: UIViewController {
         
         notification.addObserver(self, selector: #selector(self.cancelBgPlay), name: Notification.Name("StopLive"), object: nil)
         setUpPlayer()
+    }
+    
+    func initLocationManager(){
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+    }
+    
+    func checkIfLocationIsEnabled(){
+        if CLLocationManager.locationServicesEnabled(){
+            initLocationManager()
+            checkLocationPermission()
+        } else {
+            appUtil.showAlert(title: "", msg: "Allow the app to access your location by turning on your device location")
+        }
+    }
+    
+    func checkLocationPermission(){
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse:
+            getLocation()
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted:
+            break
+        case .denied:
+            break
+        default:
+            break
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedWhenInUse:
+            getLocation()
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted:
+            break
+        case .denied:
+            break
+        default:
+            break
+        }
+    }
+    
+    func getLocation(){
+        lat = "\(locationManager.location?.coordinate.latitude ?? 0.0)"
+        lng = "\(locationManager.location?.coordinate.longitude ?? 0.0)"
+        
+        sendStartedListening()
     }
     
     @IBAction func btnPlay(_ sender: Any) {
@@ -81,6 +138,8 @@ class ListenLiveVC: UIViewController {
 //        btnPlay.setBackgroundImage(UIImage(named: "icon_stop"), for: .normal)
         btnPlay.setImage(UIImage(named: "icon_stop"), for: .normal)
         isPlaying = true
+        
+        checkIfLocationIsEnabled()
     }
     
     func stopPlayer() -> Void {
@@ -102,11 +161,13 @@ class ListenLiveVC: UIViewController {
     }
     
     func sendStartedListening(){
+        let startTime = dateUtil.dateToString(theDate: Date(), outputFormat: "ddMMyyyy HHmmss")
+        
         let params = ["email": "",
-                      "phone_identifier": "",
-                      "start_time": "",
-                      "lat": "",
-                      "lng": ""]
+                      "phone_identifier": deviceId,
+                      "start_time": startTime,
+                      "lat": lat,
+                      "lng": lng]
         
         let headers: HTTPHeaders = ["": ""]
         
@@ -124,8 +185,10 @@ class ListenLiveVC: UIViewController {
     }
     
     func sendStoppedListening(){
+        let endTime = dateUtil.dateToString(theDate: Date(), outputFormat: "ddMMyyyy HHmmss")
+        
         let params = ["listener_token": "",
-                      "end_time": ""]
+                      "end_time": endTime]
         
         let headers: HTTPHeaders = ["": ""]
         
