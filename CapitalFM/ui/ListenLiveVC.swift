@@ -50,57 +50,6 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate {
         setUpPlayer()
     }
     
-    func initLocationManager(){
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-    }
-    
-    func checkIfLocationIsEnabled(){
-        if CLLocationManager.locationServicesEnabled(){
-            initLocationManager()
-            checkLocationPermission()
-        } else {
-            appUtil.showAlert(title: "", msg: "Allow the app to access your location by turning on your device location")
-        }
-    }
-    
-    func checkLocationPermission(){
-        switch CLLocationManager.authorizationStatus() {
-        case .authorizedWhenInUse:
-            getLocation()
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        case .restricted:
-            break
-        case .denied:
-            break
-        default:
-            break
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .authorizedWhenInUse:
-            getLocation()
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        case .restricted:
-            break
-        case .denied:
-            break
-        default:
-            break
-        }
-    }
-    
-    func getLocation(){
-        lat = "\(locationManager.location?.coordinate.latitude ?? 0.0)"
-        lng = "\(locationManager.location?.coordinate.longitude ?? 0.0)"
-        
-        sendStartedListening()
-    }
-    
     @IBAction func btnPlay(_ sender: Any) {
         if isPlaying{
             stopPlayer()
@@ -196,6 +145,52 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate {
             
             print(response)
         })
+    }
+    
+    func initLocationManager(){
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+    }
+    
+    func checkIfLocationIsEnabled(){
+        if CLLocationManager.locationServicesEnabled(){
+            initLocationManager()
+            checkLocationPermission()
+        } else {
+            appUtil.showAlert(title: "", msg: "Allow the app to access your location by turning on your device location")
+        }
+    }
+    
+    func checkLocationPermission(){
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse:
+            getLocation()
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted:
+            break
+        case .denied:
+            break
+        default:
+            break
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        checkLocationPermission()
+    }
+    
+    func getLocation(){
+        if (locationManager.location?.coordinate) != nil {
+            lat = String(describing: locationManager.location!.coordinate.latitude)
+            lng = String(describing: locationManager.location!.coordinate.longitude)
+        } else {
+            lat = "0.0"
+            lng = "0.0"
+        }
+        
+        
+        sendStartedListening()
     }
     
     func setShowImage(){
