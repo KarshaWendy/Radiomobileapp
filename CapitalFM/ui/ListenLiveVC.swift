@@ -118,9 +118,9 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate {
                       "lat": lat,
                       "lng": lng]
         
-        let headers: HTTPHeaders = ["": ""]
+//        let headers: HTTPHeaders? = nil
         
-        Alamofire.request(cons.startListeningUrl(), method: .post, parameters: params, encoding: [] as! ParameterEncoding, headers: headers).responseJSON(completionHandler: {response in
+        Alamofire.request(cons.startListeningUrl(), method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON(completionHandler: {response in
             switch response.result {
                 
             case .success(let res):
@@ -189,8 +189,7 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate {
             lng = "0.0"
         }
         
-        
-        sendStartedListening()
+//        sendStartedListening()
     }
     
     func setShowImage(){

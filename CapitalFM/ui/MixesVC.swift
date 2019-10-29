@@ -20,8 +20,10 @@ class MixesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     var player : AVPlayer!
     var mixes = [Mix]()
     var selectedMix : Mix!
+    var position = 0
     var appUtil = AppUtil()
     var isPlaying = false
+    let notification = NotificationCenter.default
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
@@ -32,6 +34,7 @@ class MixesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 
         self.navigationItem.title = "DJ Mixes"
         
+        notification.addObserver(self, selector: #selector(self.cancelBgPlay), name: Notification.Name("StopMix"), object: nil)
         fetchMixes()
         // Do any additional setup after loading the view.
     }
@@ -80,13 +83,17 @@ class MixesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        notification.post(name: Notification.Name("StopLive"), object: nil)
         selectedMix = mixes[indexPath.row]
+        position = indexPath.row
         performSegue(withIdentifier: "seguePlay", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as? PlayMixVC
         vc!.mix = selectedMix
+        vc!.mixes = mixes
+        vc!.position = position
     }
     
 //    @objc func tappedPlay(sender : UIButton){
@@ -169,6 +176,18 @@ class MixesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 //
 //    }
     
+    
+    @objc func cancelBgPlay(){
+        if player != nil {
+            stopPlayer()
+        }
+    }
+    
+    func stopPlayer() -> Void {
+        player = nil
+        isPlaying = false
+    }
+    
     func fetchMixes(){
         let loader = MBProgressHUD.showAdded(to: self.view, animated: true)
         loader.label.text = "loading..."
@@ -203,7 +222,6 @@ class MixesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             
             break
         case .failure(let error):
-            
             DispatchQueue.main.async{
                 loader.hide(animated: true)
                 if error.localizedDescription.contains("The Internet connection appears to be offline"){

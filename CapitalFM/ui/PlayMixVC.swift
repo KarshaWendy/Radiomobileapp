@@ -21,7 +21,9 @@ class PlayMixVC: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var bottomBar: UIView!
     
+    var mixes = [Mix]()
     var mix : Mix!
+    var position = 0
     var player : AVPlayer!
     var timeObserverToken : Any!
     var isPlaying = false
