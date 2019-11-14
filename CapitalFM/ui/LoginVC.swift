@@ -162,7 +162,7 @@ class LoginVC: UIViewController, LoginButtonDelegate  {
                       "password": password,
                       "phone_type": "iphone"]
         
-        Alamofire.request(MyConstants().registerUrl(), method: .post, parameters: params, encoding: [] as! ParameterEncoding, headers: params).responseJSON(completionHandler: {(response) in
+        Alamofire.request(MyConstants().registerUrl(), method: .post, parameters: params, encoding: JSONEncoding.default, headers: params).responseJSON(completionHandler: {(response) in
             switch response.result {
             case .success(let res):
                 let resJson = JSON(res)
@@ -198,12 +198,13 @@ class LoginVC: UIViewController, LoginButtonDelegate  {
         let loader = MBProgressHUD.showAdded(to: self.view, animated: true)
         
         let params = ["email": email,
-                      "phone_type": "iphone",
+                      "phone_type": MyConstants().PHONE_TYPE_IOS,
                       "phone_identifier": deviceId,
                       "social_token": sess.getSocialToken(),
-                      "social_type": sess.getSocialType()]
+                      "social_type": sess.getSocialPlatform()
+        ]
         
-        Alamofire.request(MyConstants().registerSocialUrl(), method: .post, parameters: params, encoding: [] as! ParameterEncoding, headers: params).responseJSON(completionHandler: {(response) in
+        Alamofire.request(MyConstants().registerSocialUrl(), method: .post, parameters: params, encoding: JSONEncoding.default, headers: params).responseJSON(completionHandler: {(response) in
             switch response.result {
             case .success(let res):
                 let resJson = JSON(res)

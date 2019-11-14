@@ -8,6 +8,9 @@
 
 import Foundation
 class MyConstants {
+    let PHONE_TYPE_IOS = "iphone"
+    
+    
     let URL_LIVE_STREAM = "https://icecast2.getstreamhosting.com:8050/stream.mp3"
     
     //feed
@@ -21,7 +24,7 @@ class MyConstants {
     let URL_FETCH_MIXES = "https://api.soundcloud.com/users/27162382/tracks?client_id=62d04bb9b214abbc31cae1334a28e8ed"
     
     //app apis
-    let BASE_URL = "https://data.smartapplicationsgroup.com/"
+    let BASE_URL = "https://data.smartapplicationsgroup.com/capitalfm/api/"
     let KEY_AUTH = "Authorization:Bearer"
     
     //Google
@@ -74,10 +77,10 @@ class MyConstants {
     }
     
     func startListeningUrl() -> String {
-        return BASE_URL + "start_listening"
+        return BASE_URL + "startlistening"
     }
     
     func stopListeningUrl() -> String {
-        return BASE_URL + "stop_listening"
+        return BASE_URL + "stoplistening"
     }
 }

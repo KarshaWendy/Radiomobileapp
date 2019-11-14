@@ -22,7 +22,7 @@ class PlayMixVC: UIViewController {
     @IBOutlet weak var bottomBar: UIView!
     
     var mixes = [Mix]()
-    var mix : Mix!
+//    var mix : Mix!
     var position = 0
     var player : AVPlayer!
     var timeObserverToken : Any!
@@ -31,7 +31,6 @@ class PlayMixVC: UIViewController {
     var loader: MBProgressHUD!
     let notification = NotificationCenter.default
     let KEY_OBSERVER = "currentItem.loadedTimeRanges"
-    
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
@@ -44,15 +43,6 @@ class PlayMixVC: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.MyTheme.primaryColor
         
         bottomBar.layer.cornerRadius = 16
-        
-        tvTitle.text = mix.title
-        tvDuration.text = DateUtil().formatDuration(duration: mix.duration)
-        
-        if !mix.artwork_url.isEmpty{
-            let url = URL(string: mix.artwork_url)
-            iv.kf.setImage(with: url)
-        }
-        loader = MBProgressHUD.showAdded(to: self.view, animated: true)
         
         notification.addObserver(self, selector: #selector(self.cancelBgPlay), name: Notification.Name("StopMix"), object: nil)
         setUpPlayer()
@@ -72,9 +62,27 @@ class PlayMixVC: UIViewController {
     }
     
     @IBAction func btnNext(_ sender: Any) {
+        stopPlayer()
+        
+        if position >= mixes.count {
+            position = 0
+        } else {
+            position+=1
+        }
+        
+        setUpPlayer()
     }
     
     @IBAction func btnPrevious(_ sender: Any) {
+        stopPlayer()
+        
+        if position == 0 {
+            position = mixes.count - 1
+        } else {
+            position-=1
+        }
+        
+        setUpPlayer()
     }
     
     func startPlayer(){
@@ -120,7 +128,18 @@ class PlayMixVC: UIViewController {
     }
 
     func setUpPlayer(){
-        let streamUrl = mix.stream_url + "?client_id=" + MyConstants().SOUNDCLOUD_CLIENT_ID
+        
+        loader = MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        let streamUrl = mixes[position].stream_url + "?client_id=" + MyConstants().SOUNDCLOUD_CLIENT_ID
+        
+        if !mixes[position].artwork_url.isEmpty{
+            let url = URL(string: mixes[position].artwork_url)
+            iv.kf.setImage(with: url)
+        }
+        
+        tvTitle.text = mixes[position].title
+        tvDuration.text = DateUtil().formatDuration(duration: mixes[position].duration)
         
         let audioSession = AVAudioSession.sharedInstance()
         do {

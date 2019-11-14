@@ -14,20 +14,21 @@ import SwiftyJSON
 import MBProgressHUD
 import CoreLocation
 
-class ListenLiveVC: UIViewController, CLLocationManagerDelegate {
+class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var ivLive: UIImageView!
     @IBOutlet weak var btnPlay: UIButton!
-    @IBOutlet weak var ivGif: UIImageView!
     @IBOutlet weak var tvShow: UILabel!
     @IBOutlet weak var tvPresenter: UILabel!
-    
+    @IBOutlet weak var myTabs: UISegmentedControl!
+    @IBOutlet weak var collSchedule: UICollectionView!
     var isPlaying: Bool!
     var player: AVPlayer!
     var loader: MBProgressHUD!
     var dateUtil = DateUtil()
     let appUtil = AppUtil()
-    var cons = MyConstants()
+    let sess = SessionManager()
+    let cons = MyConstants()
     let audioSession = AVAudioSession.sharedInstance()
     let notification = NotificationCenter.default
     let locationManager = CLLocationManager()
@@ -40,6 +41,7 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        setUpTabs()
         setShowImage()
     }
     
@@ -50,13 +52,17 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate {
         setUpPlayer()
     }
     
+    func setUpTabs(){
+        myTabs.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
+        myTabs.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        myTabs.tintColor = UIColor.MyTheme.primaryColor
+    }
+    
     @IBAction func btnPlay(_ sender: Any) {
         if isPlaying{
             stopPlayer()
-            ivGif.image = UIImage(named: "icon_live_gif")
         } else {
             startPlayer()
-            ivGif.loadGif(name: "livegif")
         }
     }
     
@@ -110,9 +116,32 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate {
     }
     
     func sendStartedListening(){
+        let delegate: Alamofire.SessionDelegate = AppUtil.Manager.delegate
+        delegate.sessionDidReceiveChallenge = { session, challenge in
+            var disposition: URLSession.AuthChallengeDisposition = .performDefaultHandling
+            var credential: URLCredential?
+            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+                disposition = URLSession.AuthChallengeDisposition.useCredential
+                credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+            } else {
+                if challenge.previousFailureCount > 0 {
+                    disposition = .cancelAuthenticationChallenge
+                } else {
+                    credential = AppUtil.Manager.session.configuration.urlCredentialStorage?.defaultCredential(for: challenge.protectionSpace)
+                    if credential != nil {
+                        disposition = .useCredential
+                    }
+                }
+            }
+            return (disposition, credential)
+        }
+        
+        
+        
         let startTime = dateUtil.dateToString(theDate: Date(), outputFormat: "ddMMyyyy HHmmss")
         
-        let params = ["email": "",
+        let params = ["show_name": "morning show",
+                      "phone_type" : cons.PHONE_TYPE_IOS,
                       "phone_identifier": deviceId,
                       "start_time": startTime,
                       "lat": lat,
@@ -120,12 +149,17 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate {
         
 //        let headers: HTTPHeaders? = nil
         
-        Alamofire.request(cons.startListeningUrl(), method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON(completionHandler: {response in
+        
+        
+        AppUtil.Manager.request(cons.startListeningUrl(), method: .post, parameters: params, encoding: JSONEncoding(options: []), headers: nil).responseJSON(completionHandler: {response in
             switch response.result {
                 
             case .success(let res):
                 let resJson = JSON(res)
-                //                let status = resJson["status"].int ?? 0
+                print(resJson)
+                let status = resJson["status"].int ?? 0
+                
+                
                 break
             case .failure(let error):
                 print(error.localizedDescription)
@@ -137,11 +171,11 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate {
         let endTime = dateUtil.dateToString(theDate: Date(), outputFormat: "ddMMyyyy HHmmss")
         
         let params = ["listener_token": "",
-                      "end_time": endTime]
+                      "start_time": endTime]
         
         let headers: HTTPHeaders = ["": ""]
         
-        Alamofire.request(cons.stopListeningUrl(), method: .post, parameters: params, encoding: [] as! ParameterEncoding, headers: headers).responseJSON(completionHandler: {response in
+        Alamofire.request(cons.stopListeningUrl(), method: .post, parameters: params, encoding: JSONEncoding(options: []), headers: headers).responseJSON(completionHandler: {response in
             
             print(response)
         })
@@ -189,7 +223,7 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate {
             lng = "0.0"
         }
         
-//        sendStartedListening()
+        sendStartedListening()
     }
     
     func setShowImage(){
@@ -447,6 +481,27 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate {
         ivLive.image = UIImage(named: imageName)
         tvShow.text = showName
         tvPresenter.text = presenterName
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ScheduleCell
+//        cell.title.text =
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let iphoneHeight = 90
+        let ipadHeight = 130
+        
+        if(UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone) {
+            return CGSize(width: collSchedule.bounds.size.width - 4, height: CGFloat(iphoneHeight))
+        } else {
+            return CGSize(width: (collSchedule.bounds.size.width/2)-4, height: CGFloat(ipadHeight))
+        }
     }
     
 }

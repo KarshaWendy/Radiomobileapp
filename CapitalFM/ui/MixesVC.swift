@@ -91,7 +91,7 @@ class MixesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as? PlayMixVC
-        vc!.mix = selectedMix
+//        vc!.mix = selectedMix
         vc!.mixes = mixes
         vc!.position = position
     }
