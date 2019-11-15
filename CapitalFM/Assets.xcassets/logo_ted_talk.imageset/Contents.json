@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "TED-TALK-LOGO.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "stop-button.png",
       "scale" : "2x"
     },
     {

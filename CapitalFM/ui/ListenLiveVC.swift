@@ -16,12 +16,16 @@ import CoreLocation
 
 class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet weak var ivShowLogo: UIImageView!
+    @IBOutlet weak var ivListenLive: UIImageView!
     @IBOutlet weak var ivLive: UIImageView!
     @IBOutlet weak var btnPlay: UIButton!
     @IBOutlet weak var tvShow: UILabel!
     @IBOutlet weak var tvPresenter: UILabel!
+    @IBOutlet weak var tvDay: UILabel!
     @IBOutlet weak var myTabs: UISegmentedControl!
     @IBOutlet weak var collSchedule: UICollectionView!
+    
     var isPlaying: Bool!
     var player: AVPlayer!
     var loader: MBProgressHUD!
@@ -234,7 +238,8 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionVie
         var cat = ""
         var showName = ""
         var presenterName = ""
-        var imageName = ""
+        var imageName = "live12"
+        var showLogoName = ""
         let defaultImg = "live12"
         
         switch day {
@@ -263,34 +268,42 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionVie
                 presenterName = "Laid back Dj Mixes"
                 showName = cons.HEARTBEAT
                 imageName = defaultImg
+                showLogoName = "logo_heartbeat"
             case 500..<600:
                 presenterName = "Dj Tony"
                 showName = cons.QUIET_STORM
                 imageName = "live1"
+                showLogoName = "logo_quiet_storm"
             case 600..<1000:
                 presenterName = "Amina & Fareed"
                 showName = cons.CAPITAL_MORNING
                 imageName = "live2"
+                showLogoName = "logo_capital_in_the_morning"
             case 1000..<1400:
                 presenterName = "Anne & Miano"
                 showName = cons.FUSE
                 imageName = "live3"
+                showLogoName = "logo_the_fuse"
             case 1400..<1500:
                 presenterName = "One hour of Amazing Dj mixes"
                 showName = cons.RADIO_ACTIVE
                 imageName = "live6"
+                showLogoName = "logo_radio_active"
             case 1500..<1900:
                 presenterName = "Joey & Martin"
                 showName = cons.JAM
                 imageName = "live4"
+                showLogoName = "logo_the_jam"
             case 1900..<2200:
                 presenterName = "Mandi & Neville"
                 showName = cons.HITS
                 imageName = "live5"
+                showLogoName = "logo_hits"
             case 2200..<2400:
                 presenterName = "Laid back Dj Mixes"
                 imageName = cons.HEARTBEAT
                 imageName = "live7"
+                showLogoName = "logo_heartbeat"
             default:
                 presenterName = ""
                 showName = ""
@@ -301,39 +314,48 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionVie
             case 0..<100:
                 presenterName = "Laid back Dj Mixes"
                 showName = cons.HEARTBEAT
-                imageName = ""
+                imageName = defaultImg
+                showLogoName = "logo_heartbeat"
             case 500..<600:
                 presenterName = "Dj Tony"
                 showName = cons.QUIET_STORM
                 imageName = "live1"
+                showLogoName = "logo_quiet_storm"
             case 600..<1000:
                 presenterName = "Amina & Fareed"
                 showName = cons.CAPITAL_MORNING
                 imageName = "live2"
+                showLogoName = "logo_capital_in_the_morning"
             case 1000..<1400:
                 presenterName = "Anne & Miano"
                 showName = cons.FUSE
                 imageName = "live3"
+                showLogoName = "logo_the_fuse"
             case 1400..<1500:
                 presenterName = "One hour of Amazing Dj mixes"
                 showName = cons.RADIO_ACTIVE
                 imageName = "live6"
+                showLogoName = "logo_radio_active"
             case 1500..<1900:
                 presenterName = "Joey & Martin"
                 showName = cons.JAM
                 imageName = "live4"
+                showLogoName = "logo_the_jam"
             case 1900..<2200:
                 presenterName = ""
                 showName = cons.HITS
                 imageName = defaultImg
+                showLogoName = "logo_hits"
             case 2200..<2300:
                 presenterName = ""
                 showName = cons.TED_TALK
                 imageName = "live19"
+                showLogoName = "logo_ted_talk"
             case 2300..<2400:
                 presenterName = "Laid back Dj Mixes"
                 showName = cons.HEARTBEAT
                 imageName = defaultImg
+                showLogoName = "logo_heartbeat"
             default:
                 presenterName = ""
                 showName = ""
@@ -345,38 +367,47 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionVie
                 presenterName = "Laid back Dj Mixes"
                 showName = cons.HEARTBEAT
                 imageName = defaultImg
+                showLogoName = "logo_heartbeat"
             case 500..<600:
                 presenterName = "Dj Tony"
                 showName = cons.QUIET_STORM
                 imageName = "live1"
+                showLogoName = "logo_quiet_storm"
             case 600..<1000:
                 presenterName = "Amina & Fareed"
                 showName = cons.CAPITAL_MORNING
                 imageName = "live2"
+                showLogoName = "logo_capital_in_the_morning"
             case 1000..<1400:
                 presenterName = "Anne & Miano"
                 showName = cons.FUSE
                 imageName = "live3"
+                showLogoName = "logo_the_fuse"
             case 1400..<1500:
                 presenterName = "One hour of Amazing Dj mixes"
                 showName = cons.RADIO_ACTIVE
                 imageName = "live6"
+                showLogoName = "logo_radio_active"
             case 1500..<1900:
                 presenterName = "Joey & Martin"
                 showName = cons.JAM
                 imageName = "live4"
+                showLogoName = "logo_the_jam"
             case 1900..<2100:
                 presenterName = "Mandi & Neville"
                 showName = cons.HEAT
                 imageName = defaultImg
+                showLogoName = ""
             case 2100..<2300:
                 presenterName = ""
                 showName = cons.DANCE_REPUBLIC
                 imageName = defaultImg
+                showLogoName = "logo_dance_republic"
             case 2300..<2400:
                 presenterName = ""
                 showName = cons.CLUB_CAPITAL
                 imageName = defaultImg
+                showLogoName = ""
             default:
                 presenterName = ""
                 showName = ""
@@ -388,38 +419,47 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionVie
                 presenterName = ""
                 showName = cons.CLUB_CAPITAL
                 imageName = defaultImg
+                showLogoName = ""
             case 500..<700:
                 presenterName = "Dj Tony"
                 showName = cons.INFUSED
                 imageName = defaultImg
+                showLogoName = "logo_infused"
             case 700..<1000:
                 presenterName = "Tracy, Djs Tumz & Lithium"
                 showName = cons.SATURDAY_BREAKFAST
                 imageName = "live8"
+                showLogoName = "logo_sat_breakfast"
             case 1000..<1400:
                 presenterName = "Rick Dees"
                 showName = cons.RICK_DEES
                 imageName = "live9"
+                showLogoName = "logo_rick_dees"
             case 1400..<1700:
                 presenterName = "Solo, Wokabi & Alex"
                 showName = cons.MUSIC_SPORT
                 imageName = "live10"
+                showLogoName = "logo_sat_music_sports"
             case 1700..<1900:
                 presenterName = "Dj Slick"
                 showName = cons.CYPHER
                 imageName = "live11"
+                showLogoName = "logo_the_cypher"
             case 1900..<2100:
                 presenterName = "Kui Kabala"
                 showName = cons.WORLD_GROOVE
                 imageName = "live12"
+                showLogoName = "logo_world_groove"
             case 2100..<2300:
                 presenterName = "Dj Adrian"
                 showName = cons.WHEELZ_STEEL
                 imageName = "live13"
+                showLogoName = "logo_wheels_of_steel"
             case 2300..<2400:
                 presenterName = ""
                 showName = cons.CLUB_CAPITAL
                 imageName = defaultImg
+                showLogoName = ""
             default:
                 presenterName = ""
                 showName = ""
@@ -431,54 +471,63 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionVie
                 presenterName = ""
                 showName = cons.CLUB_CAPITAL
                 imageName = defaultImg
+                showLogoName = ""
             case 600..<800:
                 presenterName = ""
                 showName = cons.LEGENDS
                 imageName = defaultImg
+                showLogoName = ""
             case 800..<900:
                 presenterName = ""
                 showName = cons.COUNTRY_ROAD
                 imageName = defaultImg
+                showLogoName = "logo_country_road"
             case 900..<1100:
                 presenterName = "Chao"
                 showName = cons.LOUNGE
                 imageName = "live14"
+                showLogoName = "logo_lounge"
             case 1100..<1300:
                 presenterName = "Wokabi & friends"
                 showName = cons.FOOTBALL_SUNDAY
                 imageName = "live10"
+                showLogoName = "logo_football_sunday"
             case 1300..<1500:
                 presenterName = "Dj Mo"
                 showName = cons.SOUND
                 imageName = "live15"
+                showLogoName = "logo_the_sound"
             case 1500..<1700:
                 presenterName = "Dj Adrian"
                 showName = cons.SOUL_GROOVE
                 imageName = "live13"
+                showLogoName = "logo_world_groove"
             case 1700..<1900:
                 presenterName = "Ras Luigi"
                 showName = cons.ONE_LOVE
                 imageName = "live17"
+                showLogoName = "logo_one_love"
             case 1900..<2200:
                 presenterName = "Kaima & Jacob Asiyo"
                 showName = cons.CAPITAL_JAZZ_CLUB
                 imageName = "live16"
+                showLogoName = "logo_capital_jazz"
             case 2200..<2300:
                 presenterName = ""
                 showName = cons.TED_TALK_RPT
                 imageName = "live18"
+                showLogoName = "logo_ted_talk"
             default:
                 presenterName = ""
                 showName = ""
                 imageName = defaultImg
             }
         default:
-            presenterName = ""
-            showName = ""
             imageName = defaultImg
         }
         
         ivLive.image = UIImage(named: imageName)
+        ivShowLogo.image = UIImage(named: showLogoName)
         tvShow.text = showName
         tvPresenter.text = presenterName
     }
@@ -494,8 +543,8 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let iphoneHeight = 90
-        let ipadHeight = 130
+        let iphoneHeight = 70
+        let ipadHeight = 110
         
         if(UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone) {
             return CGSize(width: collSchedule.bounds.size.width - 4, height: CGFloat(iphoneHeight))
@@ -504,4 +553,19 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionVie
         }
     }
     
+    @IBAction func tabSelected(_ sender: Any) {
+        if myTabs.selectedSegmentIndex == 0{
+            collSchedule.isHidden = true
+            ivListenLive.isHidden = false
+            tvDay.isHidden = false
+            tvShow.isHidden = false
+            tvPresenter.isHidden = false
+        } else {
+            collSchedule.isHidden = false
+            ivListenLive.isHidden = true
+            tvDay.isHidden = true
+            tvShow.isHidden = true
+            tvPresenter.isHidden = true
+        }
+    }
 }
