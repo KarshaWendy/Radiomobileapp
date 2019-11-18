@@ -16,6 +16,7 @@ import CoreLocation
 
 class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet weak var tvShow2: UILabel!
     @IBOutlet weak var ivShowLogo: UIImageView!
     @IBOutlet weak var ivListenLive: UIImageView!
     @IBOutlet weak var ivLive: UIImageView!
@@ -240,6 +241,8 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionVie
         var presenterName = ""
         var imageName = "live12"
         var showLogoName = ""
+        var airDay = "MON - FRI"
+        var airTime = "10:00 - 12:00"
         let defaultImg = "live12"
         
         switch day {
@@ -267,43 +270,59 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionVie
             case 0..<100:
                 presenterName = "Laid back Dj Mixes"
                 showName = cons.HEARTBEAT
-                imageName = defaultImg
+                imageName = "heartbeat"
                 showLogoName = "logo_heartbeat"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 500..<600:
                 presenterName = "Dj Tony"
                 showName = cons.QUIET_STORM
                 imageName = "live1"
                 showLogoName = "logo_quiet_storm"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 600..<1000:
                 presenterName = "Amina & Fareed"
                 showName = cons.CAPITAL_MORNING
-                imageName = "live2"
+                imageName = "capital_in_the_morning"
                 showLogoName = "logo_capital_in_the_morning"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 1000..<1400:
                 presenterName = "Anne & Miano"
                 showName = cons.FUSE
-                imageName = "live3"
+                imageName = "the_fuse"
                 showLogoName = "logo_the_fuse"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 1400..<1500:
                 presenterName = "One hour of Amazing Dj mixes"
                 showName = cons.RADIO_ACTIVE
-                imageName = "live6"
+                imageName = "radio_active"
                 showLogoName = "logo_radio_active"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 1500..<1900:
                 presenterName = "Joey & Martin"
                 showName = cons.JAM
-                imageName = "live4"
+                imageName = "the_jam"
                 showLogoName = "logo_the_jam"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 1900..<2200:
                 presenterName = "Mandi & Neville"
                 showName = cons.HITS
-                imageName = "live5"
+                imageName = "hits"
                 showLogoName = "logo_hits"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 2200..<2400:
                 presenterName = "Laid back Dj Mixes"
                 imageName = cons.HEARTBEAT
-                imageName = "live7"
+                imageName = "heartbeat"
                 showLogoName = "logo_heartbeat"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             default:
                 presenterName = ""
                 showName = ""
@@ -314,48 +333,66 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionVie
             case 0..<100:
                 presenterName = "Laid back Dj Mixes"
                 showName = cons.HEARTBEAT
-                imageName = defaultImg
+                imageName = "heartbeat"
                 showLogoName = "logo_heartbeat"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 500..<600:
                 presenterName = "Dj Tony"
                 showName = cons.QUIET_STORM
                 imageName = "live1"
                 showLogoName = "logo_quiet_storm"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 600..<1000:
                 presenterName = "Amina & Fareed"
                 showName = cons.CAPITAL_MORNING
-                imageName = "live2"
+                imageName = "capital_in_the_morning"
                 showLogoName = "logo_capital_in_the_morning"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 1000..<1400:
                 presenterName = "Anne & Miano"
                 showName = cons.FUSE
-                imageName = "live3"
+                imageName = "the_fuse"
                 showLogoName = "logo_the_fuse"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 1400..<1500:
                 presenterName = "One hour of Amazing Dj mixes"
                 showName = cons.RADIO_ACTIVE
-                imageName = "live6"
+                imageName = "radio_active"
                 showLogoName = "logo_radio_active"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 1500..<1900:
                 presenterName = "Joey & Martin"
                 showName = cons.JAM
-                imageName = "live4"
+                imageName = "the_jam"
                 showLogoName = "logo_the_jam"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 1900..<2200:
                 presenterName = ""
                 showName = cons.HITS
-                imageName = defaultImg
+                imageName = "hits"
                 showLogoName = "logo_hits"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 2200..<2300:
                 presenterName = ""
                 showName = cons.TED_TALK
-                imageName = "live19"
+                imageName = "ted_talk"
                 showLogoName = "logo_ted_talk"
+                airDay = "THU, SUN"
+                airTime = "00:00 - 00:00"
             case 2300..<2400:
                 presenterName = "Laid back Dj Mixes"
                 showName = cons.HEARTBEAT
-                imageName = defaultImg
+                imageName = "heartbeat"
                 showLogoName = "logo_heartbeat"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             default:
                 presenterName = ""
                 showName = ""
@@ -366,48 +403,66 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionVie
             case 0..<100:
                 presenterName = "Laid back Dj Mixes"
                 showName = cons.HEARTBEAT
-                imageName = defaultImg
+                imageName = "heartbeat"
                 showLogoName = "logo_heartbeat"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 500..<600:
                 presenterName = "Dj Tony"
                 showName = cons.QUIET_STORM
                 imageName = "live1"
                 showLogoName = "logo_quiet_storm"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 600..<1000:
                 presenterName = "Amina & Fareed"
                 showName = cons.CAPITAL_MORNING
-                imageName = "live2"
+                imageName = "capital_in_the_morning"
                 showLogoName = "logo_capital_in_the_morning"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 1000..<1400:
                 presenterName = "Anne & Miano"
                 showName = cons.FUSE
-                imageName = "live3"
+                imageName = "the_fuse"
                 showLogoName = "logo_the_fuse"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 1400..<1500:
                 presenterName = "One hour of Amazing Dj mixes"
                 showName = cons.RADIO_ACTIVE
-                imageName = "live6"
+                imageName = "radio_active"
                 showLogoName = "logo_radio_active"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 1500..<1900:
                 presenterName = "Joey & Martin"
                 showName = cons.JAM
-                imageName = "live4"
+                imageName = "the_jam"
                 showLogoName = "logo_the_jam"
+                airDay = "MON - FRI"
+                airTime = "00:00 - 00:00"
             case 1900..<2100:
                 presenterName = "Mandi & Neville"
                 showName = cons.HEAT
                 imageName = defaultImg
                 showLogoName = ""
+                airDay = "FRI"
+                airTime = "00:00 - 00:00"
             case 2100..<2300:
                 presenterName = ""
                 showName = cons.DANCE_REPUBLIC
-                imageName = defaultImg
+                imageName = "dance_republic"
                 showLogoName = "logo_dance_republic"
+                airDay = "FRI"
+                airTime = "00:00 - 00:00"
             case 2300..<2400:
                 presenterName = ""
                 showName = cons.CLUB_CAPITAL
-                imageName = defaultImg
+                imageName = "capital_club"
                 showLogoName = ""
+                airDay = "FRI"
+                airTime = "00:00 - 00:00"
             default:
                 presenterName = ""
                 showName = ""
@@ -418,48 +473,66 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionVie
             case 0..<200:
                 presenterName = ""
                 showName = cons.CLUB_CAPITAL
-                imageName = defaultImg
-                showLogoName = ""
+                imageName = "capital_club"
+                airDay = "SAT"
+                airDay = ""
+                airTime = "00:00 - 00:00"
             case 500..<700:
                 presenterName = "Dj Tony"
                 showName = cons.INFUSED
-                imageName = defaultImg
+                imageName = "infused"
                 showLogoName = "logo_infused"
+                airDay = "SAT"
+                airTime = "00:00 - 00:00"
             case 700..<1000:
                 presenterName = "Tracy, Djs Tumz & Lithium"
                 showName = cons.SATURDAY_BREAKFAST
-                imageName = "live8"
+                imageName = "sat_breakfast"
                 showLogoName = "logo_sat_breakfast"
+                airDay = "SAT"
+                airTime = "00:00 - 00:00"
             case 1000..<1400:
                 presenterName = "Rick Dees"
                 showName = cons.RICK_DEES
-                imageName = "live9"
+                imageName = "rick_dees"
                 showLogoName = "logo_rick_dees"
+                airDay = "SAT"
+                airTime = "00:00 - 00:00"
             case 1400..<1700:
                 presenterName = "Solo, Wokabi & Alex"
                 showName = cons.MUSIC_SPORT
-                imageName = "live10"
+                imageName = "sat_music_sports"
                 showLogoName = "logo_sat_music_sports"
+                airDay = "SAT"
+                airTime = "00:00 - 00:00"
             case 1700..<1900:
                 presenterName = "Dj Slick"
                 showName = cons.CYPHER
-                imageName = "live11"
+                imageName = "the_cypher"
                 showLogoName = "logo_the_cypher"
+                airDay = "SAT"
+                airTime = "00:00 - 00:00"
             case 1900..<2100:
                 presenterName = "Kui Kabala"
                 showName = cons.WORLD_GROOVE
-                imageName = "live12"
+                imageName = "world_groove"
                 showLogoName = "logo_world_groove"
+                airDay = "SAT"
+                airTime = "00:00 - 00:00"
             case 2100..<2300:
                 presenterName = "Dj Adrian"
                 showName = cons.WHEELZ_STEEL
-                imageName = "live13"
+                imageName = "wheels_of_steel"
                 showLogoName = "logo_wheels_of_steel"
+                airDay = "SAT"
+                airTime = "00:00 - 00:00"
             case 2300..<2400:
                 presenterName = ""
                 showName = cons.CLUB_CAPITAL
-                imageName = defaultImg
+                imageName = "capital_club"
                 showLogoName = ""
+                airDay = "SAT"
+                airTime = "00:00 - 00:00"
             default:
                 presenterName = ""
                 showName = ""
@@ -470,53 +543,73 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionVie
             case 0..<200:
                 presenterName = ""
                 showName = cons.CLUB_CAPITAL
-                imageName = defaultImg
+                imageName = "capital_club"
                 showLogoName = ""
+                airDay = "SUN"
+                airTime = "00:00 - 00:00"
             case 600..<800:
                 presenterName = ""
                 showName = cons.LEGENDS
-                imageName = defaultImg
+                imageName = "legends"
                 showLogoName = ""
+                airDay = "SUN"
+                airTime = "00:00 - 00:00"
             case 800..<900:
                 presenterName = ""
                 showName = cons.COUNTRY_ROAD
-                imageName = defaultImg
+                imageName = "country_road"
                 showLogoName = "logo_country_road"
+                airDay = "SUN"
+                airTime = "00:00 - 00:00"
             case 900..<1100:
                 presenterName = "Chao"
                 showName = cons.LOUNGE
-                imageName = "live14"
+                imageName = "the_lounge"
                 showLogoName = "logo_lounge"
+                airDay = "SUN"
+                airTime = "00:00 - 00:00"
             case 1100..<1300:
                 presenterName = "Wokabi & friends"
                 showName = cons.FOOTBALL_SUNDAY
-                imageName = "live10"
+                imageName = "sunday_football"
                 showLogoName = "logo_football_sunday"
+                airDay = "SUN"
+                airTime = "00:00 - 00:00"
             case 1300..<1500:
                 presenterName = "Dj Mo"
                 showName = cons.SOUND
-                imageName = "live15"
+                imageName = "the_sound"
                 showLogoName = "logo_the_sound"
+                airDay = "SUN"
+                airTime = "00:00 - 00:00"
             case 1500..<1700:
                 presenterName = "Dj Adrian"
                 showName = cons.SOUL_GROOVE
-                imageName = "live13"
+                imageName = "world_groove"
                 showLogoName = "logo_world_groove"
+                airDay = "SUN"
+                airTime = "00:00 - 00:00"
             case 1700..<1900:
                 presenterName = "Ras Luigi"
                 showName = cons.ONE_LOVE
-                imageName = "live17"
+                imageName = "one_love"
                 showLogoName = "logo_one_love"
+                airDay = "SUN"
+                airTime = "00:00 - 00:00"
             case 1900..<2200:
                 presenterName = "Kaima & Jacob Asiyo"
                 showName = cons.CAPITAL_JAZZ_CLUB
-                imageName = "live16"
+                imageName = "jazz_club"
                 showLogoName = "logo_capital_jazz"
+                airDay = "SUN"
+                airTime = "00:00 - 00:00"
             case 2200..<2300:
                 presenterName = ""
                 showName = cons.TED_TALK_RPT
-                imageName = "live18"
+                imageName = "ted_talk"
                 showLogoName = "logo_ted_talk"
+                airDay = "THU, SUN"
+                airTime = "00:00 - 00:00"
             default:
                 presenterName = ""
                 showName = ""
@@ -529,6 +622,8 @@ class ListenLiveVC: UIViewController, CLLocationManagerDelegate, UICollectionVie
         ivLive.image = UIImage(named: imageName)
         ivShowLogo.image = UIImage(named: showLogoName)
         tvShow.text = showName
+        tvShow2.text = showName
+        tvDay.text = airDay + " " + airTime
         tvPresenter.text = presenterName
     }
     
