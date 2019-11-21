@@ -12,7 +12,6 @@ struct Feed {
     var link: String
     var title: Title
     var imageUrl: String
-//    var content: Content
 }
 
 struct Title {
